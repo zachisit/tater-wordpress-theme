@@ -45,7 +45,7 @@ register_nav_menus( array(
 function theme_scripts() {
     //normalize
     wp_enqueue_script('jquery');
-    
+
     //css
     wp_enqueue_style( 'theme-style', get_stylesheet_uri() );
 
