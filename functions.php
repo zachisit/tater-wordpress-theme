@@ -43,8 +43,12 @@ register_nav_menus( array(
  * css and js scripts
  **************************************************/
 function theme_scripts() {
+    //normalize
+    wp_enqueue_script('jquery');
+    
     //css
     wp_enqueue_style( 'theme-style', get_stylesheet_uri() );
+
     //js
     //wp_enqueue_script( 'navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 }
