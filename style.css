@@ -1,0 +1,157 @@
+/*
+Theme Name: Tater
+Theme URI: https://g.co/kgs/yL2Gqj
+Author: Zachary Smith
+Author URI: https://g.co/kgs/yL2Gqj
+Description: Starter WordPress theme with 99% of what you will need to get going on your WP install
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: tater
+Tags: theme
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Client Brand Colors
+# Normalize
+# Header
+# Mobile Menu
+# Content
+# Sidebar
+# Alignments
+# Responsive Video Wrappers
+# Footer
+# Responsive (iphone/android)
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Client Brand Colors
+
+* blue: #434343;
+* white: #r3r3r3;
+* red: #979797;
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Normalize
+--------------------------------------------------------------*/
+html {
+    font-family: sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust:     100%;
+}
+body {
+    margin: 0;
+}
+ul {
+    margin:0;
+    padding:0;
+}
+
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+header#main {
+    float:left;
+    width:100%;
+}
+header#main #logo {
+    float:left;
+    width:auto;
+    margin:0;
+}
+header#main #menu {
+    float:right;
+    width:auto;
+    margin:0;
+}
+
+/*--------------------------------------------------------------
+# Mobile Menu
+---------------------------------------------------------------*/
+.mobilemenubars {
+    background:black;
+    height:9px;
+    width:100%;
+    margin:2px;
+    width:44px;
+    float:right;
+}
+#menu_close {display:none;}
+#menu_btn {
+    background:#c9a659;
+    width:48px;
+    height:40px;
+    float:right;
+    display:none;
+    margin:6px 0 0 0;
+}
+
+/*--------------------------------------------------------------
+# Alignments
+--------------------------------------------------------------*/
+.alignleft {
+    display: inline;
+    float: left;
+    margin-right: 1.5em;
+}
+
+.alignright {
+    display: inline;
+    float: right;
+    margin-left: 1.5em;
+}
+
+.aligncenter {
+    clear: both;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*--------------------------------------------------------------
+# Responsive Video Wrappers
+---------------------------------------------------------------*/
+.videoWrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+}
+.videoWrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+footer {
+    float:left;
+    width:100%;
+}
+
+/*---------------------------------------------------------------
+# Responsive (iphone/android)
+---------------------------------------------------------------*/
+@media only screen and (max-width:500px) {
+    .container {
+        float:left;
+        display: block;
+        width:100%;
+        margin:0;
+        padding:0;
+    }
+    img {
+        width:100%;
+        height:auto;
+    }
+}
