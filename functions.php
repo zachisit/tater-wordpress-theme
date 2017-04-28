@@ -50,7 +50,7 @@ function theme_scripts() {
     wp_enqueue_style( 'theme-style', get_stylesheet_uri() );
 
     //js
-    //wp_enqueue_script( 'navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+    wp_enqueue_script( 'mobile-menu', get_template_directory_uri() . '/js/mobile_menu.js', array(), '20180428', true );
 }
 add_action( 'wp_enqueue_scripts', 'theme_scripts' );
 

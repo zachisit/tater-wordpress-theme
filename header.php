@@ -17,6 +17,19 @@
 
     <?php wp_head(); ?>
 </head>
+<!--attached to the mobile menu-->
+<style>
+    @media screen and (max-width: 760px) {
+        #menu {
+            display: none;
+        }
+    }
+    @media screen and (min-width: 761px) {
+        #menu {
+            display: block;
+        }
+    }
+</style>
 
 <body>
 
