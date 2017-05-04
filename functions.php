@@ -121,6 +121,7 @@ function wpt_event_posttype() {
             'rewrite' => array("slug" => "events"), // Permalinks format
             'menu_position' => 5,
             'register_meta_box_cb' => 'add_events_metaboxes'
+            //'menu_icon' => 'https://developer.wordpress.org/resource/dashicons/#update'
         )
     );
 }
