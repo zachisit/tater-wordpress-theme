@@ -217,4 +217,47 @@ function my_mce_before_init_insert_formats( $init_array ) {
 }
 // Attach callback to 'tiny_mce_before_init'
 add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' );
+
+/*************************************************************
+* # Register custom css classes option in WYSIWIG for editors
+*************************************************************/
+//callback function to insert 'styleselect' into the $buttons array
+function my_mce_buttons_2( $buttons ) {
+    array_unshift( $buttons, 'styleselect' );
+    return $buttons;
+}
+
+//register our callback to the appropriate filter
+add_filter('mce_buttons_2', 'my_mce_buttons_2');
+
+//callback function to filter the MCE settings
+function my_mce_before_init_insert_formats( $init_array ) {
+
+    // Define the style_formats array
+    $style_formats = array(
+
+    //list each out, more than one array is ok
+    /*array(
+       'title' => 'PDF Link',
+       'selector' => 'a',
+       'classes' => 'pdf_link'
+    ),
+
+    array(
+       'title' => 'Button Link',
+       'selector' => 'a',
+       'classes' => 'button_link'
+    )*/
+);
+
+//insert the array, JSON ENCODED, into 'style_formats'
+    $init_array['style_formats'] = json_encode( $style_formats );
+
+    return $init_array;
+}
+
+//attach callback to 'tiny_mce_before_init'
+add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' );
+
+
 ?>
