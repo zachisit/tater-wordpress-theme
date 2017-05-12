@@ -96,6 +96,35 @@ function is_tree($pid) {      // $pid = The ID of the page we're looking for pag
         return false;  // we're elsewhere
 };
 
+
+/***********************************************************************
+* output sibling pages of a current pge
+***********************************************************************/
+function wpb_list_child_pages() {
+
+    global $post;
+
+    $string = '';
+
+    if ( is_page() && $post->post_parent )
+
+        $childpages = wp_list_pages( 'sort_column=menu_order&title_li=&child_of=' . $post->post_parent . '&echo=0' );
+    else
+        $childpages = wp_list_pages( 'sort_column=menu_order&title_li=&child_of=' . $post->ID . '&echo=0' );
+
+    if ( $childpages ) {
+
+        $string = '<ul>' . $childpages . '</ul>';
+    } else {
+        echo "no child pages available to show";
+    }
+
+    return $string;
+
+}
+
+add_shortcode('wpb_childpages', 'wpb_list_child_pages');
+
 /*************************************************************
  * # Example CPT
  *************************************************************/
