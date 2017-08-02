@@ -4,9 +4,6 @@
  *
  * This is the template that displays generic 404 message
  *
- * @link https://codex.wordpress.org/Creating_an_Error_404_Page
- *
- * @package tater
  */
 get_header(); ?>
 

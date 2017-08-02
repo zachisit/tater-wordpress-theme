@@ -1,0 +1,130 @@
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Client Brand Colors
+# Further Reading
+# Admin UX
+# CPT Meta Box Stylings
+# Responsive Video Wrappers
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Client Brand Colors
+--------------------------------------------------------------*/
+$brand_color_gray:#323331;
+$brand_color_light_gray:#5f7178;
+$brand_color_orange:#CA7938;
+$brand_color_light_orange:#e3a464;
+$brand_color_blue:#3F5A72;
+$brand_color_light_blue:#789db7;
+$our_specialities_menu_title_link:#C97938;
+$error_red:#FF7878;
+
+body, html {
+
+  .wp-heading-inline {
+    color:$brand_color_orange;
+  }
+
+  a {
+    color:$brand_color_blue;
+  }
+
+  /*--------------------------------------------------------------
+  # Further Reading
+  --------------------------------------------------------------*/
+  .further-reading-widget {
+    margin: .5em 0;
+
+    &:not(:first-of-type) {
+      margin-top:1.5em;
+      border-top:solid thin black;
+    }
+  }
+
+  /*--------------------------------------------------------------
+  # Admin UX
+  --------------------------------------------------------------*/
+  .meta-box-sortables {
+
+    h2.hndle {
+      color:$brand_color_blue;
+      font-weight:500;
+      border-bottom:1px solid $brand_color_blue;
+      text-shadow:none;
+      font-size:1.2em !important;
+    }
+
+    /*--------------------------------------------------------------
+    # CPT Meta Box Stylings
+    --------------------------------------------------------------*/
+    .metabox {
+      padding:0 0 2em 0;
+
+      label {
+        display:block;
+        font-size:1.2em;
+        font-weight:500;
+        margin:2em 0 0.5em 0;
+        color:$brand_color_orange;
+
+        &:first-child {
+          margin:2em 0 0 0;
+        }
+      }
+
+      input {
+        margin:0;
+        display:block;
+      }
+
+      input[type=checkbox] {
+        margin:0 1em 0 0;
+        padding:0;
+        display:inline-block !important;
+      }
+
+      .subtitle_italic {
+        display:block;
+        font-size:1em;
+        margin:0.5em 0;
+        font-style:italic;
+      }
+
+      .iframe {
+        margin:0 0 1em 0;
+        display:block;
+      }
+
+      .button {
+        background:#0085ba;
+        border-color:#0073aa #006799 #006799;
+        -webkit-box-shadow:0 1px 0 #006799;
+        box-shadow:0 1px 0 #006799;
+        color:#fff;
+        text-decoration:none;
+        text-shadow:0 -1px 1px #006799, 1px 0 1px #006799, 0 1px 1px #006799, -1px 0 1px #006799;
+        height:30px;
+        line-height:28px;
+        padding:0 12px 2px;
+      }
+      /*--------------------------------------------------------------
+        # Responsive Video Wrapper
+      --------------------------------------------------------------*/
+      .videoWrapper {
+        position:relative;
+        padding-bottom:56.25%; /* 16:9 */
+        padding-top:25px;
+        height:0;
+        margin:0 0 1em 0;
+
+        iframe {
+          position:absolute;
+          top:0;
+          left:0;
+          width:100%;
+          height:100%;
+        }
+      }
+    }
+  }
+}
