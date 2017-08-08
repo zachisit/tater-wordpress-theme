@@ -3,28 +3,34 @@
  *
  * mobile menu using jquery
  *
- *
  */
-jQuery(function() {
+jQuery(function($) {
+    var $menu_id = $('#menu'),
+        $menu_close = $('#menu_close');
+
     //show the menu when button is clicked
-    jQuery('#menu_btn').click(function() {
-        if(jQuery('#menu').is(':visible')) {
-            jQuery('#menu').animate({ left: '-100%' }, 'slow', function () {
-                jQuery("#menu").css('display', 'none');
-                jQuery('#menu_close').css('display', 'none');
+    $('#menu_btn').click(function() {
+        //if menu is not shown:
+        if($menu_id.is(':hidden')) {
+            //remove display:none
+            $menu_id.css('display', 'block');
+            //trigger the fancy animation
+            $menu_id.animate({ left: '0' }, 'slow', function(){
+                $menu_close.css('display', 'block');
             });
         } else {
-            jQuery("#menu").css('display', 'block');
-            jQuery('#menu').animate({ left: '0' }, 'slow', function(){
-                jQuery('#menu_close').css('display', 'block');
+            //otherwise, close menu
+            $menu_id.animate({ left: '-100%' }, 'slow', function () {
+                $menu_id.css('display', 'none');
+                $menu_close.css('display', 'none');
             });
         }
     });
 
     //close menu when X button is clicked
-    jQuery('#menu_close').click(function() {
-        jQuery('#menu').animate({ left: '-100%' }, 'slow', function () {
-            jQuery("#menu").css('display', 'none');
+    $menu_close.click(function() {
+        $menu_id.animate({ left: '-100%' }, 'slow', function () {
+            $menu_id.css('display', 'none');
         });
     });
 
@@ -36,11 +42,14 @@ jQuery(window).resize( function(){
 });
 
 function callOnResize() {
-    var winwidth = jQuery(window).width();
-    if (winwidth < 760) {
-        jQuery( '#menu' ).css({ display: 'none' });
-        jQuery('#menu').animate({ left: '0' }, 'slow');
-    } else if (winwidth >= 760) {
-        jQuery( '#menu' ).css({ display: 'block' });
+    var winwidth = jQuery(window).width(),
+        mobile_width = 430,
+        menu_id = jQuery('#menu');
+
+    if (winwidth < mobile_width) {
+        menu_id.css({ display: 'none' });
+        menu_id.animate({ left: '-100%' }, 'slow');
+    } else if (winwidth >= mobile_width) {
+        menu_id.css({ display: 'block' });
     }
 }
