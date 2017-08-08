@@ -17,6 +17,7 @@ $brand_color_light_orange:#e3a464;
 $brand_color_blue:#3F5A72;
 $brand_color_light_blue:#789db7;
 $our_specialities_menu_title_link:#C97938;
+//@TODO: change brand colors
 $error_red:#FF7878;
 
 body, html {
@@ -88,6 +89,17 @@ body, html {
         font-size:1em;
         margin:0.5em 0;
         font-style:italic;
+      }
+
+      .required {
+
+        &:after {
+          content:"*";
+          font-size:1em;
+          color:red;
+          font-weight:900;
+          padding:0 0 0 0.5em;
+        }
       }
 
       .iframe {
