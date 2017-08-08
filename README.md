@@ -7,6 +7,7 @@
 - [Theme Custom Post Types](#theme-custom-post-types)
 - [Theme Shortcodes](#theme-shortcodes)
 - [Theme Fonts](#theme-fonts)
+- [Image Preloading](#image-preloading)
 - [WordPress Version](#wordpress-version)
 - [Coding Styles](#coding-styles)
 - [Base Theme History](#base-theme-history)
@@ -28,6 +29,9 @@
 ## Theme Fonts
 * To save server space and user load time, we use Google Fonts. The following are the client approved fonts this theme relies on. Fallback font will be sans-serif.
 * Google Fonts '[FONT-NAME]' for [FONT-USES-ON-SITE] - https://fonts.google.com/specimen/[FULL-FONT-URL]
+
+## Image Preloading
+* Theme utilizing preloading of any files placed inside the theme/images/preload directory. Refer to file documentation on safe-use.
 
 ## WordPress Version
 * At time of last update, this theme was built and tested with WordPress version [WORDPRESS-VERSION-NUMBER]
