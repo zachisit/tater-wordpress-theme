@@ -49,7 +49,7 @@ function theme_scripts()
     //js
     wp_enqueue_script( 'mobile-menu', get_template_directory_uri() . '/js/mobile_menu.js', time(), true );
     wp_enqueue_script( 'videoWrapper', get_template_directory_uri() . '/js/videoWrapper.js',  time() );
-    wp_enqueue_script( 'preloading_images', get_template_directory_uri() . '/js/preload.js',  time() );
+    wp_enqueue_script( 'preloading_directory', get_template_directory_uri() . '/js/preload_directory.js',  time() );
     wp_enqueue_script( 'smooth_scroll', get_template_directory_uri() . '/js/smooth_scroll.js',  time() );
     wp_enqueue_script( 'pdf_css_icon_add', get_template_directory_uri() . '/js/pdf_css_icon_add.js', time() );
 }
@@ -107,3 +107,29 @@ function populate_template_file($templateFile, $args = [])
 
     return ob_get_clean();
 }
+
+/**
+ * preload entire dir
+ * @return: json encoded string
+ */
+function XXX_theme_preload_dir() {
+    header( 'Content-type: application/json' );
+
+    $filenameArray = [];
+    $templatePath = get_template_directory_uri();
+
+    $handle = opendir(dirname(realpath(__FILE__)). '/images/preload/');
+
+    while($file = readdir($handle)){
+        if($file !== '.' && $file !== '..'){
+            array_push($filenameArray, "$templatePath/images/preload/$file");
+        }
+    }
+
+    echo json_encode($filenameArray);
+
+    wp_die();//need to do at end of ajax calls to stop
+}
+
+add_action('wp_ajax_preload_images_directory', 'XXX_theme_preload_dir');
+add_action('wp_ajax_nopriv_preload_images_directory', 'XXX_theme_preload_dir');
