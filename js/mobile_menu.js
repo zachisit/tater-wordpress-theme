@@ -53,3 +53,12 @@ function callOnResize() {
         menu_id.css({ display: 'block' });
     }
 }
+
+/*
+ disable the top level links so user
+ can actually see the dropdown links
+ in mobile only
+ */
+jQuery(function($) {
+    $(".menu-item-has-children").children("a").attr('href', "javascript:void(0)");
+});
