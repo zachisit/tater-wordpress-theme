@@ -102,6 +102,19 @@ body, html {
         }
       }
 
+      #required_explainer {
+        display:block;
+
+        &:before {
+          content:"*";
+          font-size:1em;
+          color:red;
+          font-weight:900;
+          padding:0 0.5em 0 0;
+        }
+
+      }
+
       .iframe {
         margin:0 0 1em 0;
         display:block;
