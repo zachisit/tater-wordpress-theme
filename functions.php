@@ -87,7 +87,7 @@ add_theme_support( 'post-thumbnails' );
 
 /**
  * ---
- * Featured images in Page Edit
+ * Template Engine
  * Takes a template file and populates it into a string that is returned
  * @param $templateFile
  * @param array $args
@@ -109,6 +109,8 @@ function populate_template_file($templateFile, $args = [])
 }
 
 /**
+ * ---
+ * Preloading Directory of Files
  * preload entire dir
  * @return: json encoded string
  */
