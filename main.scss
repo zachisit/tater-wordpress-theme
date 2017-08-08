@@ -124,12 +124,23 @@ body, html {
     display:inline;
     float:left;
     margin-right:1.5em;
+
+    @media #{$mobile_phone_size} {
+      width:100%;
+      height:auto;
+    }
   }
 
   .alignright {
     display:inline;
     float:right;
     margin-left:1.5em;
+
+    @media #{$mobile_phone_size} {
+      width:100%;
+      height:auto;
+      float:left;
+    }
   }
 
   .aligncenter {
@@ -137,8 +148,13 @@ body, html {
     display:block;
     margin-left:auto;
     margin-right:auto;
+
+    @media #{$mobile_phone_size} {
+      width:100%;
+      height:auto;
+    }
   }
-  
+
   /*--------------------------------------------------------------
    # Responsive Video Wrapper
   --------------------------------------------------------------*/
