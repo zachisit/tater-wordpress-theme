@@ -11,7 +11,7 @@
 
 <header id="main">
     <div id="logo">
-        <a href="<?php echo get_home_url(); ?>" title="Home"><img src="<?php echo get_template_directory_uri(); ?>/images/preloaded/logo.png" alt="<?php echo get_bloginfo( 'name' ); ?> - Home" /></a>
+        <a href="<?php echo get_home_url(); ?>" title="Home"><img src="<?php echo get_template_directory_uri(); ?>/images/preload/logo.png" alt="<?php echo get_bloginfo( 'name' ); ?> - Home" /></a>
     </div>
     <div id="menu">
         <a href="javascript:void(0);" id="menu_btn"><div class="mobilemenubars"></div><div class="mobilemenubars"></div><div class="mobilemenubars"></div></a>

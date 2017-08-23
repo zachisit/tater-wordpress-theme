@@ -11,7 +11,7 @@ body {
     color:white;
 }
 body.login div#login h1 a {
-    background:white url(images/preloaded/logo.png) no-repeat;
+    background:white url(images/preload/logo.png) no-repeat;
     background-size:319px;
     height:36px;
     background-size:320px;
