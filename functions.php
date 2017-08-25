@@ -5,6 +5,8 @@
  * @package tater
  */
 
+require_once "shortcodes/sitemap.php";
+
 /**
  * ---
  * Widgetize Theme
