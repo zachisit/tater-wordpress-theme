@@ -8,7 +8,6 @@
 require_once "shortcodes/sitemap.php";
 
 /**
- * ---
  * Widgetize Theme
  */
 function theme_widgets_init()
@@ -28,7 +27,6 @@ function theme_widgets_init()
 add_action( 'widgets_init', 'theme_widgets_init' );
 
 /**
- * ---
  * Declare Theme Menus
  */
 register_nav_menus( [
@@ -37,7 +35,6 @@ register_nav_menus( [
 ] );
 
 /**
- * ---
  * Theme CSS and JS Scripts
  */
 function theme_scripts()
@@ -66,7 +63,6 @@ function theme_scripts()
 add_action( 'wp_enqueue_scripts', 'theme_scripts' );
 
 /**
- * ---
  * Login Screen CSS
  */
 function theme_login_script()
@@ -76,7 +72,6 @@ function theme_login_script()
 add_action( 'login_enqueue_scripts', 'theme_login_script', 1 );
 
 /**
- * ---
  * Admin CSS and JS
  */
 function theme_admin_script()
@@ -90,13 +85,11 @@ function theme_admin_script()
 add_action( 'admin_enqueue_scripts', 'theme_admin_script');
 
 /**
- * ---
  * Featured images in Page Edit
  */
 add_theme_support( 'post-thumbnails' );
 
 /**
- * ---
  * Template Engine
  * Takes a template file and populates it into a string that is returned
  * @param $templateFile
@@ -119,7 +112,6 @@ function populate_template_file($templateFile, $args = [])
 }
 
 /**
- * ---
  * Preloading Directory of Files
  * preload entire dir
  * @return: json encoded string
@@ -145,3 +137,17 @@ function XXX_theme_preload_dir() {
 
 add_action('wp_ajax_preload_images_directory', 'XXX_theme_preload_dir');
 add_action('wp_ajax_nopriv_preload_images_directory', 'XXX_theme_preload_dir');
+
+/**
+ * Convert Normal YouTube link into embed code
+ * Turns - https://www.youtube.com/watch?v=Aq-d4CET3rY
+ * into - Aq-d4CET3rY
+ * @param $youtube_url
+ * @return mixed
+ */
+function youtube_url_to_embed($youtube_url) {
+    $search = '/youtube\.com\/watch\?v=([a-zA-Z0-9]+)/smi';
+    $replace = "youtube.com/embed/$1";
+    $embed_url = preg_replace($search,$replace,$youtube_url);
+    return $embed_url;
+}

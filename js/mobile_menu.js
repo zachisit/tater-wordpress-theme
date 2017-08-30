@@ -3,6 +3,9 @@
  *
  * mobile menu using jquery
  *
+ * version:
+ * 1.0.8
+ *
  */
 jQuery(function($) {
     var $menu_id = $('#menu'),
