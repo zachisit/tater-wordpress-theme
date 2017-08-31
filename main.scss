@@ -27,23 +27,28 @@
 //colors here
 $error_red:#FF7878;
 
-//vendor
+//social brand colors
 $facebook_brand_color_blue:#3b5998;
 $twitter_brand_color_blue:#1da1f2;
 $youtube_brand_color_red:#cd201f;
 
 /*--------------------------------------------------------------
-# Mixins
+# Responsive Style Verbiage + Mixins
 --------------------------------------------------------------*/
-
-$mobile_phone_size: "only screen and (max-width:430px)";
-$table_size: "only screen and (min-width:430px) and (max-width:880px)";
-$medium_desktop_size: "only screen and (min-width:881px) and (max-width:1300px)";
+$mobile_phone_size:"only screen and (max-width:430px)";
+$table_size:"only screen and (min-width:430px) and (max-width:880px)";
+$medium_desktop_size:"only screen and (min-width:881px) and (max-width:1300px)";
 
 @mixin mobile_width_float_margin {
   float:left;
   width:100%;
   margin:0;
+}
+@mixin image_responsive {
+  img {
+    width:100%;
+    height:auto;
+  }
 }
 
 /*--------------------------------------------------------------
