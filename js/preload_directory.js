@@ -14,9 +14,12 @@
  * homepage large parallax images
  * etc
  *
- * Tied to function ncherm_theme_preload_dir()
+ * Tied to function XXXX_theme_preload_dir()
  *
  * dependencies: jquery
+ *
+ * version:
+ * 1.1.0
  *
  */
 jQuery(document).ready(function($) {

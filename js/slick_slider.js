@@ -7,6 +7,9 @@
  * slick slider
  * http://kenwheeler.github.io/slick/
  *
+ * version:
+ * 1.0.1
+ *
  */
 
 /**
@@ -20,23 +23,5 @@ jQuery(document).ready(function($){
         dots: true,
         arrows: false,
         autoplaySpeed: 5500
-    });
-
-    $('.slider-for').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: true,
-        fade: true,
-        asNavFor: '.slider-for'
-    });
-
-    $('.slider-nav').slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        asNavFor: '.slider-nav',
-        dots: true,
-        arrows: true,
-        centerMode: true,
-        focusOnSelect: true
     });
 });

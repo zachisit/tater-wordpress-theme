@@ -63,6 +63,18 @@ function theme_scripts()
 add_action( 'wp_enqueue_scripts', 'theme_scripts' );
 
 /**
+ * Remove auto-linking of upload image in Media Library
+ */
+function theme_imagelink_setup() {
+    $image_set = get_option( 'image_default_link_type' );
+
+    if ($image_set !== 'none') {
+        update_option('image_default_link_type', 'none');
+    }
+}
+add_action('admin_init', 'theme_imagelink_setup', 10);
+
+/**
  * Login Screen CSS
  */
 function theme_login_script()
