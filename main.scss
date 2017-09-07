@@ -125,6 +125,13 @@ body {
     text-decoration:none;
   }
 
+  .mobile_only {
+    display:none;
+
+    @media #{$mobile_phone_size} {
+      display:block;
+    }
+  }
   /*--------------------------------------------------------------
   # Header
   --------------------------------------------------------------*/
