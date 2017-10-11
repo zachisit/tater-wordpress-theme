@@ -163,3 +163,23 @@ function youtube_url_to_embed($youtube_url) {
     $embed_url = preg_replace($search,$replace,$youtube_url);
     return $embed_url;
 }
+
+/**
+ * Featured Image
+ * Return a featured image in a post, or return placeholder
+ * @return string
+ */
+function featured_image() {
+    $tub = get_the_post_thumbnail(null, 'full');
+
+    if (empty($tub)) {
+        return "<img src='"
+            . get_template_directory_uri()
+            . "/images/featured_image_placeholder.png' alt='"
+            . get_the_title()
+            . "' />";
+
+    } else {
+        return $tub;
+    }
+}
