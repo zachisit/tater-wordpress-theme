@@ -8,8 +8,8 @@
  */
 get_header(); ?>
 
-<div id="page_content">
-    <!--index homepage contents here-->
-</div>
+<main>
+
+</main>
 
 <?php get_footer(); ?>

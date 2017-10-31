@@ -1,4 +1,4 @@
-<footer id="main">
+<footer>
     <div id="left">
         <!--content or logo will go here-->
     </div>
