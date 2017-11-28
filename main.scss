@@ -141,12 +141,10 @@ body {
   /*--------------------------------------------------------------
   # Menu - Desktop and Mobile
   --------------------------------------------------------------*/
+  #search_mobile {
+    display:none;
+  }
 
-
-
-  /*--------------------------------------------------------------
-  # Home Page Specific
-  --------------------------------------------------------------*/
   #menu_close {
     display:none;
     float:right;
@@ -192,6 +190,10 @@ body {
   }
 
   #menu {
+    float:right;
+    width:auto;
+    clear:both;
+    margin:-1em 0 0 0;//@TODO:not most elegant;fix later
 
     @media #{$mobile_phone_size} {
       background:$error_red;
@@ -202,7 +204,81 @@ body {
       top:7%;
       z-index:999;
     }
+
+    .menu {
+      @include ul-no-list-style;
+
+      li {
+        display:inline-block;
+        margin:0 1.3em 0 0;
+        position:relative;
+
+        a {
+          font-size:1em;
+          color:$brand_color_light_gray;
+        }
+
+        @include ul-li-last-item-no-pad;
+
+        &:hover {
+
+          &  > .sub-menu {
+            display:block;
+          }
+        }
+      }
+
+      .sub-menu {
+        display:none;
+        position:absolute;
+        background:#096cc8;
+        border:1px solid #ccc;
+        padding:0;
+        width:200px;
+        z-index:2;
+
+        @media #{$mobile_phone_size} {
+          background:none;
+          position:relative;
+          border-top:1px solid #ccc;
+          border-bottom:1px solid #ccc;
+          width:100%;
+          margin:0.5em 0 0 0;
+          float:left;
+          padding:0.5em 0;
+        }
+
+        li {
+          display:block;
+          float:left;
+          padding:0.5em 0 0.5em 0.5em;
+          width:95%;
+          border-bottom:1px solid white;
+
+          @media #{$mobile_phone_size} {
+            width:100%;
+            border:none;
+            padding:0;
+            margin:0;
+          }
+
+          a {
+            color:white;
+
+            &:hover {
+              text-decoration:none;
+              color:black;
+            }
+          }
+        }
+      }
+    }
   }
+
+
+  /*--------------------------------------------------------------
+  # Home Page Specific
+  --------------------------------------------------------------*/
 
   /*--------------------------------------------------------------
   # Content
