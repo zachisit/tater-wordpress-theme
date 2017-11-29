@@ -220,8 +220,8 @@ function four_oh_four_alert() {
     //site info
     $blog  = get_bloginfo('name');
     $site  = get_bloginfo('url') . '/';
-    //$email = get_bloginfo('admin_email');
-    $email = 'zach@zachis.it';
+    $email_send = 'zach@zachis.it';
+    $email_from = get_bloginfo('admin_email');
 
     //referrer
     if (isset($_SERVER['HTTP_REFERER'])) {
@@ -291,7 +291,8 @@ function four_oh_four_alert() {
         "REMOTE IDENTITY: " . $remote  . "\n" .
         "USER AGENT: "      . $agent   . "\n\n\n";
 
-    mail($email, "404 Alert: " . $blog . "", $message, "From: $email");
+    //trigger email
+    mail($email_send, "404 Alert: " . $blog . "", $message, "From: $email_from");
 
     //set error log message
     error_log('404 hit on '. $referer . ' with an IP of '. $agent);
