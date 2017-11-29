@@ -19,6 +19,7 @@
 * SASS - theme uses SASS compiler for all stylesheets used in theme. Normal .css files will be found in the theme so user can put normal css declarations without editing the sass file if needed.
 * In-house templating engine, found in functions.php
  * @TODO
+ * @TODO:note any preferred plugins, write function to check if installed and if not flag warning
 
 ## Theme Custom Post Types
 * @TODO
@@ -39,7 +40,7 @@
 ## Coding Styles
 * You will find most of the theme's functionality broken up into directories (i.e., custom post types, shortcodes, templates, etc), loosely mimicking a MVC structure.
 * CSS and method declarations will use a title_under_score naming convention
-* Function method brackets will start on next line
+* Function method brackets will start on same line
 
 ## Base Theme History
-This WordPress theme is forked from a bare-bones base theme created by Zach Smith called [tater](https://github.com/zachisit/tater-wordpress-theme), with base theme version number 1.1.5. Started in 2017, the purpose of this base theme is to start a new project with a lot of the code and coding structure needed to get going right away. This theme does not utlilize a parent-child theme structure. This base theme will be updated as Zach progresses through better programming styles and structures. The perferred editor is PHPStorm, hence the existing .gitigore rule(s). An unlimited amount of thanks goes  to Max for helping me get this far in my coding ethos.
+This WordPress theme is [forked from] a bare-bones base theme created by Zach Smith called [tater](https://github.com/zachisit/tater-wordpress-theme), with base theme version number 1.1.6. Started in 2017, the purpose of this base theme is to start a new project with the code and coding structures needed to jump start development. This theme does not utilize a parent-child theme structure. This base theme will be updated as Zach progresses through better programming styles and structures. The preferred editor is PHPStorm, hence the existing .gitigore rule(s). An unlimited amount of thanks goes to Max for helping me get this far in my coding ethos.

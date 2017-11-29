@@ -5,8 +5,10 @@
  * This is the template that displays generic 404 message
  *
  */
-get_header(); ?>
+get_header();
 
+//404 alert
+four_oh_four_alert(); ?>
     <main>
         <div id="page_content">
             <h1>404 Page Not Found</h1>

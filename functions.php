@@ -203,3 +203,96 @@ function pageBannerImage($parallax = 0) {
             break;
     endswitch;
 }
+
+/**
+ * WP 404 Alerts
+ *
+ * send email to theme developer when 404 hit
+ * and update error_log with url, time, and IP
+ *
+ * method is called on 404.php
+ */
+function four_oh_four_alert() {
+    //set status
+    header("HTTP/1.1 404 Not Found");
+    header("Status: 404 Not Found");
+
+    //site info
+    $blog  = get_bloginfo('name');
+    $site  = get_bloginfo('url') . '/';
+    //$email = get_bloginfo('admin_email');
+    $email = 'zach@zachis.it';
+
+    //referrer
+    if (isset($_SERVER['HTTP_REFERER'])) {
+        $referer = clean($_SERVER['HTTP_REFERER']);
+    } else {
+        $referer = "undefined";
+    }
+
+    //request URI
+    if (isset($_SERVER['REQUEST_URI']) && isset($_SERVER["HTTP_HOST"])) {
+        $request = clean('http://' . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
+    } else {
+        $request = "undefined";
+    }
+
+    //query string
+    if (isset($_SERVER['QUERY_STRING'])) {
+        $string = clean($_SERVER['QUERY_STRING']);
+    } else {
+        $string = "undefined";
+    }
+
+    //IP address
+    if (isset($_SERVER['REMOTE_ADDR'])) {
+        $address = clean($_SERVER['REMOTE_ADDR']);
+    } else {
+        $address = "undefined";
+    }
+
+    //user agent
+    if (isset($_SERVER['HTTP_USER_AGENT'])) {
+        $agent = clean($_SERVER['HTTP_USER_AGENT']);
+    } else {
+        $agent = "undefined";
+    }
+
+    //identity
+    if (isset($_SERVER['REMOTE_IDENT'])) {
+        $remote = clean($_SERVER['REMOTE_IDENT']);
+    } else {
+        $remote = "undefined";
+    }
+
+    //log time
+    $time = clean(date("F jS Y, h:ia", time()));
+
+    //sanitize
+    function clean($string) {
+        $string = rtrim($string);
+        $string = ltrim($string);
+        $string = htmlentities($string, ENT_QUOTES);
+        $string = str_replace("\n", "<br>", $string);
+
+        if (get_magic_quotes_gpc()) {
+            $string = stripslashes($string);
+        }
+        return $string;
+    }
+
+    $message =
+        "TIME: "            . $time    . "\n" .
+        "*404: "            . $request . "\n" .
+        "SITE: "            . $site    . "\n" .
+        "REFERRER: "        . $referer . "\n" .
+        "QUERY STRING: "    . $string  . "\n" .
+        "REMOTE ADDRESS: "  . $address . "\n" .
+        "REMOTE IDENTITY: " . $remote  . "\n" .
+        "USER AGENT: "      . $agent   . "\n\n\n";
+
+    mail($email, "404 Alert: " . $blog . "", $message, "From: $email");
+
+    //set error log message
+    error_log('404 hit on '. $referer . ' with an IP of '. $agent);
+}
