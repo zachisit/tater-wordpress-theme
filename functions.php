@@ -231,42 +231,42 @@ function four_oh_four_alert() {
     }
 
     //request URI
-    if (isset($_SERVER['REQUEST_URI']) && isset($_SERVER["HTTP_HOST"])) {
-        $request = clean('http://' . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
+    if (isset($_SERVER['REQUEST_URI']) && isset($_SERVER['HTTP_HOST'])) {
+        $request = clean('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
     } else {
-        $request = "undefined";
+        $request = 'undefined';
     }
 
     //query string
     if (isset($_SERVER['QUERY_STRING'])) {
         $string = clean($_SERVER['QUERY_STRING']);
     } else {
-        $string = "undefined";
+        $string = 'undefined';
     }
 
     //IP address
     if (isset($_SERVER['REMOTE_ADDR'])) {
         $address = clean($_SERVER['REMOTE_ADDR']);
     } else {
-        $address = "undefined";
+        $address = 'undefined';
     }
 
     //user agent
     if (isset($_SERVER['HTTP_USER_AGENT'])) {
         $agent = clean($_SERVER['HTTP_USER_AGENT']);
     } else {
-        $agent = "undefined";
+        $agent = 'undefined';
     }
 
     //identity
     if (isset($_SERVER['REMOTE_IDENT'])) {
         $remote = clean($_SERVER['REMOTE_IDENT']);
     } else {
-        $remote = "undefined";
+        $remote = 'undefined';
     }
 
     //log time
-    $time = clean(date("F jS Y, h:ia", time()));
+    $time = clean(date('F jS Y, h:ia', time()));
 
     //sanitize
     function clean($string) {
@@ -282,18 +282,29 @@ function four_oh_four_alert() {
     }
 
     $message =
-        "TIME: "            . $time    . "\n" .
-        "*404: "            . $request . "\n" .
-        "SITE: "            . $site    . "\n" .
-        "REFERRER: "        . $referer . "\n" .
-        "QUERY STRING: "    . $string  . "\n" .
-        "REMOTE ADDRESS: "  . $address . "\n" .
-        "REMOTE IDENTITY: " . $remote  . "\n" .
-        "USER AGENT: "      . $agent   . "\n\n\n";
+        'TIME: '            . $time    . "\n" .
+        '*404: '            . $request . "\n" .
+        'SITE: '            . $site    . "\n" .
+        'REFERRER: '        . $referer . "\n" .
+        'QUERY STRING: '    . $string  . "\n" .
+        'REMOTE ADDRESS: '  . $address . "\n" .
+        'REMOTE IDENTITY: ' . $remote  . "\n" .
+        'USER AGENT: '      . $agent   . "\n\n\n";
 
-    //trigger email
-    mail($email_send, "404 Alert: " . $blog . "", $message, "From: $email_from");
+    //send mail based on mail() or smtp delivery methods
+    if (in_array('mail', explode(';', ini_get('disable_functions')))) {
+        mail($email_send, "404 Alert: " . $blog . "", $message, "From: $email_from");
 
-    //set error log message
-    error_log('404 hit on '. $referer . ' with an IP of '. $agent);
+        //set error log message
+        error_log('404 hit on '. $referer . ' with an IP of '. $agent .'. Email via mail() is sent!');
+    } else {
+        //set up smtp
+        ini_set('SMTP', 'aspmx.l.google.com');
+        ini_set('sendmail_from', 'zacharyrs@gmail.com');
+
+        mail($email_send, "404 Alert: " . $blog . "", $message, "From: $email_from");
+
+        //set error log message
+        error_log('404 hit on '. $referer . ' with an IP of '. $agent .'. Email via SMTP is sent!');
+    }
 }
