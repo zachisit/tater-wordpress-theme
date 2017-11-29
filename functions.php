@@ -170,17 +170,36 @@ function youtube_url_to_embed($youtube_url) {
  * Return a featured image in a post, or return placeholder
  * @return string
  */
+//@TODO:create and provide placeholder image
 function featured_image() {
     $tub = get_the_post_thumbnail(null, 'full');
 
     if (empty($tub)) {
         return "<img src='"
             . get_template_directory_uri()
-            . "/images/featured_image_placeholder.png' alt='"
+            . "/images/preload/featured_image_placeholder.png' alt='"
             . get_the_title()
             . "' />";
-
     } else {
         return $tub;
     }
+}
+
+/**
+ * Page Banner Image
+ *
+ * pipes in the featured image from Page
+ * pipes in headline title of Page
+ * select if you want it as a parallax or non-parallax section
+ * @param int $parallax set to default false
+ */
+function pageBannerImage($parallax = 0) {
+    switch ($parallax):
+        case 0://if no, show regular style
+            include_once 'templates/pageBannerImageRegular.php';
+            break;
+        case 1://if yes, show as parallax effect
+            include_once 'templates/pageBannerImageParallax.php';
+            break;
+    endswitch;
 }
