@@ -3,7 +3,7 @@
 ----------------------------------------------------------------
 # Client Brand Colors
 # Social Brand Colors
-# Responsive Style Verbiage + Mixins
+# Mixins
 # Normalize
 # Header
 # Menu - Deskop and Mobile
@@ -38,7 +38,7 @@ $instagram_brand_color:#833ab4;
 $pinterest_brand_color:#bd081c;
 
 /*--------------------------------------------------------------
-# Responsive Style Verbiage + Mixins
+# Mixins
 --------------------------------------------------------------*/
 $mobile_phone_size:"only screen and (max-width:430px)";//to be depreciated; use mixins below
 $table_size:"only screen and (min-width:430px) and (max-width:880px)";//to be depreciated; use mixins below
