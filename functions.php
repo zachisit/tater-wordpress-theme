@@ -44,7 +44,6 @@ function theme_scripts()
 
     //css
     wp_enqueue_style( 'theme-style', get_stylesheet_uri() );
-    wp_enqueue_style( get_template_directory_uri() . 'main.scss' );
     //wp_enqueue_style( 'google_font_kreon', 'https://fonts.googleapis.com/css?family=Kreon:200,400,700,900');
 
     //js
