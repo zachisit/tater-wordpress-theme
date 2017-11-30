@@ -40,10 +40,25 @@ $pinterest_brand_color:#bd081c;
 /*--------------------------------------------------------------
 # Responsive Style Verbiage + Mixins
 --------------------------------------------------------------*/
-$mobile_phone_size:"only screen and (max-width:430px)";
-$table_size:"only screen and (min-width:430px) and (max-width:880px)";
-$medium_desktop_size:"only screen and (min-width:881px) and (max-width:1300px)";
+$mobile_phone_size:"only screen and (max-width:430px)";//to be depreciated; use mixins below
+$table_size:"only screen and (min-width:430px) and (max-width:880px)";//to be depreciated; use mixins below
+$medium_desktop_size:"only screen and (min-width:881px) and (max-width:1300px)";//to be depreciated; use mixins below
 
+@mixin bp-large {
+  @media only screen and (max-width: 60em) {
+    @content;
+  }
+}
+@mixin bp-medium {
+  @media only screen and (max-width: 40em) {
+    @content;
+  }
+}
+@mixin bp-small {
+  @media only screen and (max-width: 30em) {
+    @content;
+  }
+}
 @mixin mobile_width_float_margin {
   float:left;
   width:100%;
@@ -55,6 +70,41 @@ $medium_desktop_size:"only screen and (min-width:881px) and (max-width:1300px)";
     height:auto;
   }
 }
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+@mixin ul-list-no-margin {
+  margin:0;
+  padding:0;
+}
+@mixin ul-li-last-item-no-margin {
+  &:last-child {
+    padding:0;
+    margin:0;
+  }
+}
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
 
 /*--------------------------------------------------------------
 # Normalize

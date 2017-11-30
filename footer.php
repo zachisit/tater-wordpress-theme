@@ -6,7 +6,7 @@
         <!--menu or logo will go here-->
     </div>
     <div id="bottom">
-        <p>&copy; <?php echo date("Y"); ?> <?php echo get_bloginfo( 'name' ); ?></p>
+        <p>&copy; <?=date("Y"); ?> <?=get_bloginfo( 'name' ); ?></p>
     </div>
 </footer>
 <?php wp_footer(); ?>
