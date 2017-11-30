@@ -17,7 +17,7 @@
 * Zachary Smith
 
 ## Dependencies
-* SASS - theme uses SASS compiler for all stylesheets used in theme. Normal .css files will be found in the theme so user can put normal css declarations without editing the sass file if needed.
+* SASS - theme uses SASS compiler for all stylesheets used in theme. The SASS files (.css and .scss) are located in the root/sass directory. This directory set up is intentional to work with the required [WP-SCSS](https://wordpress.org/plugins/wp-scss/) plugin listed below in the [Theme Plugins](#theme-plugins) section of this document.
 * In-house templating engine, found in functions.php
 * While respecting that a theme does not need a list of poorly written plugins that complete functionality that a compentant developer can write from scratch, this theme has chosen certain plugins that extend or compliment the overall architecture of the theme itself. A list of those plugins are in the section [Theme Plugins](#theme-plugins) - if any of these plugins are not installed then an error will print in the admin screen alerting user to complete installation
 * @TODO
@@ -48,4 +48,4 @@
 * Function method brackets will start on same line
 
 ## Base Theme History
-This WordPress theme is [forked from] a bare-bones base theme created by Zach Smith called [tater](https://github.com/zachisit/tater-wordpress-theme), with base theme version number 1.1.8. Started in 2017, the purpose of this base theme is to start a new project with the code and coding structures needed to jump start development. This theme does not utilize a parent-child theme structure. This base theme will be updated as Zach progresses through better programming styles and structures. The preferred editor is PHPStorm, hence the existing .gitigore rule(s). An unlimited amount of thanks goes to Max for helping me get this far in my coding ethos.
+This WordPress theme is [forked from] a bare-bones base theme created by Zach Smith called [tater](https://github.com/zachisit/tater-wordpress-theme), with base theme version number 1.1.9. Started in 2017, the purpose of this base theme is to start a new project with the code and coding structures needed to jump start development. This theme does not utilize a parent-child theme structure. This base theme will be updated as Zach progresses through better programming styles and structures. The preferred editor is PHPStorm, hence the existing .gitigore rule(s). An unlimited amount of thanks goes to Max for helping me get this far in my coding ethos.
