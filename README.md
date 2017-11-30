@@ -8,6 +8,7 @@
 - [Theme Shortcodes](#theme-shortcodes)
 - [Theme Fonts](#theme-fonts)
 - [Image Preloading](#image-preloading)
+- [Theme Plugins](#theme-plugins)
 - [WordPress Version](#wordpress-version)
 - [Coding Styles](#coding-styles)
 - [Base Theme History](#base-theme-history)
@@ -18,9 +19,9 @@
 ## Dependencies
 * SASS - theme uses SASS compiler for all stylesheets used in theme. Normal .css files will be found in the theme so user can put normal css declarations without editing the sass file if needed.
 * In-house templating engine, found in functions.php
- * @TODO
- * @TODO:note any preferred plugins, write function to check if installed and if not flag warning
-
+* While respecting that a theme does not need a list of poorly written plugins that complete functionality that a compentant developer can write from scratch, this theme has chosen certain plugins that extend or compliment the overall architecture of the theme itself. A list of those plugins are in the section [Theme Plugins](#theme-plugins) - if any of these plugins are not installed then an error will print in the admin screen alerting user to complete installation
+* @TODO
+ 
 ## Theme Custom Post Types
 * @TODO
 
@@ -34,6 +35,10 @@
 ## Image Preloading
 * Theme utilizing preloading of any files placed inside the theme/images/preload directory. Refer to file documentation on safe-use.
 
+## Theme Plugins
+* [WP-SCSS](https://wordpress.org/plugins/wp-scss/) - allows server compiling of SASS file.
+* TODO
+
 ## WordPress Version
 * At time of last update, this theme was built and tested with WordPress version [WORDPRESS-VERSION-NUMBER]
 
@@ -43,4 +48,4 @@
 * Function method brackets will start on same line
 
 ## Base Theme History
-This WordPress theme is [forked from] a bare-bones base theme created by Zach Smith called [tater](https://github.com/zachisit/tater-wordpress-theme), with base theme version number 1.1.6. Started in 2017, the purpose of this base theme is to start a new project with the code and coding structures needed to jump start development. This theme does not utilize a parent-child theme structure. This base theme will be updated as Zach progresses through better programming styles and structures. The preferred editor is PHPStorm, hence the existing .gitigore rule(s). An unlimited amount of thanks goes to Max for helping me get this far in my coding ethos.
+This WordPress theme is [forked from] a bare-bones base theme created by Zach Smith called [tater](https://github.com/zachisit/tater-wordpress-theme), with base theme version number 1.1.7. Started in 2017, the purpose of this base theme is to start a new project with the code and coding structures needed to jump start development. This theme does not utilize a parent-child theme structure. This base theme will be updated as Zach progresses through better programming styles and structures. The preferred editor is PHPStorm, hence the existing .gitigore rule(s). An unlimited amount of thanks goes to Max for helping me get this far in my coding ethos.

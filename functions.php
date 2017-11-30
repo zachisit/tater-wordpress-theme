@@ -308,3 +308,44 @@ function four_oh_four_alert() {
         error_log('404 hit on '. $referer . ' with an IP of '. $agent .'. Email via SMTP is sent!');
     }
 }
+
+/**
+ * Plugins Required For Theme
+ *
+ * some plugins help the theme run as expected
+ * if a required plugin is missing, alert admin user
+ */
+function checkPluginsRequired() {
+    $plugin_messages = [];
+
+    include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+
+    //get theme information
+    $this_theme = wp_get_theme();
+    $this_theme_name = $this_theme->get('Name');
+    $this_theme_version = $this_theme->get('Version');
+
+    //WP-SCSS Plugin
+    if(!is_plugin_active( 'WP-SCSS-master/wp-scss.php' ))	{
+        $plugin_messages[] = 'The '.$this_theme_name.' v.'.$this_theme_version.' theme requires you to install the WP-SCSS plugin - <a href="https://wordpress.org/plugins/wp-scss/" title="Download the required plugin here" target="_blank">download it from here</a> or activate if currently installed.';
+    }
+
+    /*further plugins would be written in the following format
+    //WooCommerce Plugin
+    if(!is_plugin_active( 'woocommerce/woocommerce.php' ))	{
+        $plugin_messages[] = 'The '.$this_theme_name.' v.'.$this_theme_version.' theme requires you to install the WooCommerce plugin - <a href="https://wordpress.org/plugins/woocommerce/" title="Download the required plugin here" target="_blank">download it from here</a> or activate if currently installed.';
+    }
+    */
+
+    if(count($plugin_messages) > 0)	{
+        echo '<div id="message" class="error">';
+
+        foreach($plugin_messages as $message) {
+            echo '<p><strong>'.$message.'</strong></p>';
+        }
+
+        echo '</div>';
+    }
+}
+
+add_action('admin_notices', 'checkPluginsRequired');
