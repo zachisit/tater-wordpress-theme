@@ -31,7 +31,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 # Page Specific Content
 # Sidebar
 # Alignments
-# Responsive Video Wrappers
+# Responsive Video Wrapper & Video Object
 # Scroll To Top
 # Footer
 # Vendor Specific
@@ -395,7 +395,7 @@ body {
   }
 
   /*--------------------------------------------------------------
-   # Responsive Video Wrapper
+   # Responsive Video Wrapper & Video Object
   --------------------------------------------------------------*/
   .videoWrapper {
     position:relative;
@@ -410,6 +410,12 @@ body {
       width:100%;
       height:100%;
     }
+  }
+
+  video {
+    width:100% !important;
+    height:auto !important;
+    display:block;
   }
 
   /*--------------------------------------------------------------
