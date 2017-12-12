@@ -150,10 +150,13 @@ function XXX_theme_preload_dir() {
 add_action('wp_ajax_preload_images_directory', 'XXX_theme_preload_dir');
 add_action('wp_ajax_nopriv_preload_images_directory', 'XXX_theme_preload_dir');
 
-/**
+/*
  * Convert Normal YouTube link into embed code
  * Turns - https://www.youtube.com/watch?v=Aq-d4CET3rY
  * into - Aq-d4CET3rY
+ *
+ * function will need to be echo'd
+ *
  * @param $youtube_url
  * @return mixed
  */
@@ -161,7 +164,26 @@ function youtube_url_to_embed($youtube_url) {
     $search = '/youtube\.com\/watch\?v=([a-zA-Z0-9]+)/smi';
     $replace = "youtube.com/embed/$1";
     $embed_url = preg_replace($search,$replace,$youtube_url);
+
     return $embed_url;
+}
+
+/**
+ * Output YouTube Iframe Embed
+ *
+ * using helper function youtube_url_to_embed
+ *
+ * function will need to be echo'd
+ * @param $embed_url
+ * @return string
+ */
+function youtube_embed_iframe($embed_url) {
+    $iframe = '<iframe title="YouTube video player" class="youtube-player" type="text/html"  src="'.$embed_url.'"
+frameborder="0" allowFullScreen></iframe>';
+
+    //videoWrapper will be automatically added due to videoWrapper.js
+
+    return $iframe;
 }
 
 /**
