@@ -370,3 +370,16 @@ function checkPluginsRequired() {
 }
 
 add_action('admin_notices', 'checkPluginsRequired');
+
+/**
+ * Return Page content per ID passed in
+ * @param $page
+ * @return mixed
+ */
+function get_page_content($page) {
+    $page_id = $page;
+    $page_data = get_page( $page_id );
+    $content = apply_filters('the_content', $page_data->post_content);
+
+    return $content;
+}
