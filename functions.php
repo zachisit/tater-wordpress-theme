@@ -383,3 +383,40 @@ function get_page_content($page) {
 
     return $content;
 }
+
+/**
+ * Get Latest Post
+ *
+ * pipe in category_lsug and how many posts
+ * to return basic wp_query
+ *
+ * @param $category_slug
+ * @param $return_number
+ * @param bool $title
+ * @param bool $excerpt
+ * @param bool $readmore
+ * @param bool $date
+ */
+function get_latest_post($category_slug, $return_number, $title = false, $excerpt = false, $readmore = false, $date = false) {
+    $args = [
+        'post_type' => 'post',
+        'post_status' => 'publish',
+        'posts_per_page' => $return_number,
+        'order' => 'DSC',
+        'category_name' => $category_slug
+    ];
+
+    $the_query = new WP_Query( $args );
+
+    if ( $the_query->have_posts() ) :
+        while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+            <?php if ($title) : ?><div class="title"><?=the_title()?></div><?php endif; ?>
+            <?php if ($date) : ?><div class="date"><?=the_date()?></div><?php endif; ?>
+            <?=featured_image() ?>
+            <?php if ($excerpt) : ?><div class="excerpt"><?=the_excerpt()?></div><?php endif; ?>
+            <?php if ($readmore) : ?><div class="readmore"><a href="<?=the_permalink()?>" title="<?=the_title(); ?>">read more</a></div><?php endif; ?>
+            <?php
+        endwhile;
+    endif;
+    wp_reset_postdata();
+}
