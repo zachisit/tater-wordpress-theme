@@ -282,6 +282,13 @@ a {
           display:block;
         }
       }
+
+      &.current_page_item {
+
+        a {
+          color:yellow; //@TODO:change to brand color later
+        }
+      }
     }
 
     .sub-menu {
