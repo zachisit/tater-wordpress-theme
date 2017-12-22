@@ -420,3 +420,19 @@ function get_latest_post($category_slug, $return_number, $title = false, $excerp
     endif;
     wp_reset_postdata();
 }
+
+/**
+ * Image Creator
+ *
+ * output the image src html tag
+ * used primarily on product single view
+ * until we build media manager handlers for this screen
+ * @param $image_url
+ * @param bool $alt
+ * @param bool $class
+ * @return string
+ */
+function image_creator($image_url, $alt=false, $class=false) {
+    $string = '<img src='.$image_url.' alt='.$alt.' class='.$class.'>';
+    return $string;
+}
