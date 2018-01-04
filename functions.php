@@ -187,18 +187,44 @@ frameborder="0" allowFullScreen></iframe>';
 }
 
 /**
- * Featured Image
- * Return a featured image in a post, or return placeholder
+ * Get Featured Image
+ *
+ * Return a featured image of any Post with size passed in
+ *
+ * @param $id
+ * @param $size - defaults to 'small' if none passed in
  * @return string
  */
 //@TODO:create and provide placeholder image
-function featured_image() {
+function getFeaturedImage($id, $size) {
+    $size = ($size) ? $size : 'small';
+
+    $tub = get_the_post_thumbnail($id, $size);
+
+    if (empty($tub)) {
+        return "<img src='"
+            . get_template_directory_uri()
+            . "/images/preload/featured_image_placeholder.png' alt='Placeholder image' />";
+    } else {
+        return $tub;
+    }
+}
+
+/**
+ * Return Page Featured Image Banner
+ *
+ * Return a featured image as a page banner,
+ * or a placeholder banner
+ *
+ * @return string
+ */
+function getPageFeaturedImageBanner() {
     $tub = get_the_post_thumbnail(null, 'full');
 
     if (empty($tub)) {
         return "<img src='"
             . get_template_directory_uri()
-            . "/images/preload/featured_image_placeholder.png' alt='"
+            . "/images/preload/page_banner_placeholder.jpg' alt='"
             . get_the_title()
             . "' />";
     } else {
@@ -387,7 +413,7 @@ function get_page_content($page) {
 /**
  * Get Latest Post
  *
- * pipe in category_lsug and how many posts
+ * pipe in category_slug and how many posts
  * to return basic wp_query
  *
  * @param $category_slug
@@ -412,7 +438,7 @@ function get_latest_post($category_slug, $return_number, $title = false, $excerp
         while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
             <?php if ($title) : ?><div class="title"><?=the_title()?></div><?php endif; ?>
             <?php if ($date) : ?><div class="date"><?=the_date()?></div><?php endif; ?>
-            <?=featured_image() ?>
+            <?=getFeaturedImage(get_the_ID(), 'medium')?>
             <?php if ($excerpt) : ?><div class="excerpt"><?=the_excerpt()?></div><?php endif; ?>
             <?php if ($readmore) : ?><div class="readmore"><a href="<?=the_permalink()?>" title="<?=the_title(); ?>">read more</a></div><?php endif; ?>
             <?php
