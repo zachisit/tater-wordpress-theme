@@ -109,6 +109,30 @@ $medium_desktop_size:"only screen and (min-width:881px) and (max-width:1300px)";
   -moz-border-radius:$border;
   border-radius:$border;
 }
+@mixin after-font-awesome($type, $unicode, $size, $margin, $color, $weight) {
+  @if $type == 'after'{
+    &:after {
+      content:$unicode;
+      font-family:"FontAwesome";
+      font-size:$size;
+      color:$color;
+      font-weight:$weight;
+      margin:$margin;
+      @content;
+    }
+  }
+  @if $type == 'before' {
+    &:before {
+      content:$unicode;
+      font-family:"FontAwesome";
+      font-size:$size;
+      color:$color;
+      font-weight:$weight;
+      margin:$margin;
+      @content;
+    }
+  }
+}
 
 /*--------------------------------------------------------------
 # Normalize
