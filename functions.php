@@ -6,6 +6,7 @@
  */
 
 require_once "shortcodes/sitemap.php";
+require_once "woocommerce/woocommerce_functions.php";
 
 /**
  * Widgetize Theme
