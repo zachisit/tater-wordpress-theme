@@ -4,9 +4,10 @@
  * if user hits search button with nothing filled in:
  * redirect focus to input field
  *
- * version:
- * 1.0.0
+ * @version: 1.0
+ * @package: tater
  */
+
 jQuery(document).ready(function($) {
 
     $('.search-submit').click(function(e){

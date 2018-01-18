@@ -3,10 +3,10 @@
  *
  * mobile menu using jquery
  *
- * version:
- * 1.0.8
- *
+ * @version: 1.0
+ * @package: tater
  */
+
 jQuery(function($) {
     var $menu_id = $('#menu'),
         $menu_close = $('#menu_close');

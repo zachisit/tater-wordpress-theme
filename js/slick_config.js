@@ -1,15 +1,13 @@
 /**
- * File slick_slider.js
+ * File slick_config.js
  *
  * Initialize slider related to a css div
  *
- * dependencies:
- * slick slider
+ * @dependencies: slick slider
  * http://kenwheeler.github.io/slick/
  *
- * version:
- * 1.0.1
- *
+ * @version: 1.0
+ * @package: tater
  */
 
 /**

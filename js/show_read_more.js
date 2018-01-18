@@ -4,8 +4,9 @@
  * Show or hide text inside a div
  *
  * @version: 1.0
- *
+ * @package: tater
  */
+
 jQuery(document).ready(function($) {
     //the button link that shows dynamically under the text
     var $buttonhtml = $('<a class="morelink">Show More</a>'),

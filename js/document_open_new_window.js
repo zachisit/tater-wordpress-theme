@@ -12,10 +12,10 @@
  * dependecies:
  * jquery
  *
- * version:
- * 1.0.0
- *
+ * @version: 1.0
+ * @package: tater
  */
+
 jQuery(document).ready(function($) {
     $('a[href$=".pdf"]').attr('target', '_blank');
 });

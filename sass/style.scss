@@ -4,16 +4,12 @@
 # Client Brand Colors
 # Social Brand Colors
 # Mixins
-# Normalize
+# Global
 # Header
 # Menu - Deskop and Mobile
 # Home Page Specific
 # Content
-# - Contact Page
-# - Online Education Plugin
-# Attorneys CPT Single Page
-# Sidebar
-# Page Specific Content
+# - Page Specific Content
 # Sidebar
 # Alignments
 # Responsive Video Wrapper & Video Object
@@ -22,6 +18,7 @@
 # Vendor Specific
 # Responsive (iphone/android)
 --------------------------------------------------------------*/
+
 /*--------------------------------------------------------------
 # Client Brand Colors
 --------------------------------------------------------------*/
@@ -87,6 +84,9 @@ $medium_desktop_size:"only screen and (min-width:881px) and (max-width:1300px)";
     margin:0;
   }
 }
+@mixin ul-no-list-style {
+  list-style-type:none;
+}
 @mixin keyframes($animation-name) {
   @-webkit-keyframes #{$animation-name} {
     @content;
@@ -135,7 +135,7 @@ $medium_desktop_size:"only screen and (min-width:881px) and (max-width:1300px)";
 }
 
 /*--------------------------------------------------------------
-# Normalize
+# Global
 --------------------------------------------------------------*/
 body {
   margin:0;
@@ -156,6 +156,19 @@ h1, h2, h3, h4, h5, h6 {
 a {
   outline:none;
   text-decoration:none;
+}
+
+.screen_reader_text {
+  border:0;
+  clip:rect(1px, 1px, 1px, 1px);
+  clip-path:inset(50%);
+  height:1px;
+  margin:-1px;
+  overflow:hidden;
+  padding:0;
+  position:absolute !important;
+  width:1px;
+  word-wrap:normal !important;
 }
 
 .wrapper {

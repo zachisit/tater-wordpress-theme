@@ -18,10 +18,10 @@
  *
  * dependencies: jquery
  *
- * version:
- * 1.1.0
- *
+ * @version: 1.0
+ * @package: tater
  */
+
 jQuery(document).ready(function($) {
     $.post(ajax.url, {action:'preload_images_directory'}, function(preloadedImages) {
         //console.info(preloadedImages);

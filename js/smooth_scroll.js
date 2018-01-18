@@ -3,7 +3,10 @@
  *
  * Basic anchor text link smooth scroll script
  *
+ * @version: 1.0
+ * @package: tater
  */
+
 jQuery(document).ready(function($){
     $('a[href^="#top"]').on('click',function (e) {
         e.preventDefault();
