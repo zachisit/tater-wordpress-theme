@@ -374,7 +374,7 @@ function checkPluginsRequired() {
     $this_theme_version = $this_theme->get('Version');
 
     //WP-SCSS Plugin
-    if(!is_plugin_active( 'WP-SCSS-master/wp-scss.php' ))	{
+    if(!is_plugin_active( 'wp-scss/wp-scss.php' ))	{
         $plugin_messages[] = 'The '.$this_theme_name.' v.'.$this_theme_version.' theme requires you to install the WP-SCSS plugin - <a href="https://wordpress.org/plugins/wp-scss/" title="Download the required plugin here" target="_blank">download it from here</a> or activate if currently installed.';
     }
 

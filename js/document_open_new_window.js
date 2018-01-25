@@ -9,9 +9,7 @@
  * the document links to open in new window,
  * and will serve as a fallback
  *
- * dependecies:
- * jquery
- *
+ * @dependecy jquery
  * @version: 1.0
  * @package: tater
  */

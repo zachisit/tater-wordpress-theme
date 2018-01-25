@@ -3,6 +3,7 @@
  *
  * Basic anchor text link smooth scroll script
  *
+ * @dependecy jquery
  * @version: 1.0
  * @package: tater
  */

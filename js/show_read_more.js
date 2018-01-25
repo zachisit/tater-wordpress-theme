@@ -3,6 +3,7 @@
  *
  * Show or hide text inside a div
  *
+ * @dependecy jquery
  * @version: 1.0
  * @package: tater
  */

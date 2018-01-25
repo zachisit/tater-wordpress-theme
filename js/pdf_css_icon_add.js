@@ -4,6 +4,7 @@
  * replace any link containing the letters '.pdf' with the css div
  * showing pdf icon
  *
+ * @dependecy jquery
  * @version: 1.0
  * @package: tater
  */

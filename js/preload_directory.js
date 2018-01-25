@@ -18,6 +18,7 @@
  *
  * dependencies: jquery
  *
+ * @dependecy jquery
  * @version: 1.0
  * @package: tater
  */

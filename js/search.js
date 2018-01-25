@@ -6,8 +6,9 @@
  // * 2. if user hits search button with nothing filled in:
  // * redirect focus to input field
  *
- * @package tater
- * @version 1.0.0
+ * @dependecy jquery
+ * @version: 1.0
+ * @package: tater
  */
 jQuery(document).ready(function($) {
     var $globalSearchBlurClass = $('.searchBlur');
