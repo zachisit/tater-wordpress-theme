@@ -222,7 +222,7 @@ a {
 .mobile_only {
   display:none;
 
-  @media #{$mobile_phone_size} {
+  @include bp-small {
     display:block;
   }
 }
@@ -239,6 +239,7 @@ a {
 }
 
 #menu_close {
+  @include font-awesome-declaration('after', '\f057', 2.934em, null, white, null );
   display:none;
   float:right;
   right:2%;
@@ -246,19 +247,15 @@ a {
   border:none;
   background:none;
 
-  &::after {
-    content:"\f057";
-    font-family:"FontAwesome";
-    font-size:2.934em;
-    color:$error_red;
-  }
-
-  @media #{$mobile_phone_size} {
+  @include bp-small {
     display:block;
   }
 }
 
 #menu_btn {
+  @include font-awesome-declaration('after', '\f0c9', 2.934em, null, $error_red, null) {
+    float:left;
+  };
   background:none;
   float:right;
   outline:none;
@@ -269,15 +266,7 @@ a {
   border:none;
   position:absolute;
 
-  &::after {
-    content:"\f0c9";
-    font-family:"FontAwesome";
-    font-size:2.934em;
-    color:$error_red;
-    float:left;
-  }
-
-  @media #{$mobile_phone_size} {
+  @include bp-small {
     display:block;
   }
 }
@@ -288,14 +277,14 @@ a {
   clear:both;
   margin:-1em 0 0 0;//@TODO:not most elegant;fix later
 
-  @media #{$mobile_phone_size} {
-    background:$error_red;
+  @include bp-small {
+    background:black;
     width:100%;
-    height:576px;
     float:left;
-    position:absolute;
-    top:7%;
+    top:2%;
     z-index:999;
+    position:fixed;
+    bottom:0;
   }
 
   .menu {
@@ -337,7 +326,7 @@ a {
       width:200px;
       z-index:2;
 
-      @media #{$mobile_phone_size} {
+      @include bp-small {
         background:none;
         position:relative;
         border-top:1px solid #ccc;
@@ -355,7 +344,7 @@ a {
         width:95%;
         border-bottom:1px solid white;
 
-        @media #{$mobile_phone_size} {
+        @include bp-small {
           width:100%;
           border:none;
           padding:0;
@@ -395,7 +384,7 @@ a {
   float:left;
   margin-right:1.5em;
 
-  @media #{$mobile_phone_size} {
+  @include bp-small {
     width:100%;
     height:auto;
     margin:0;
@@ -407,7 +396,7 @@ a {
   float:right;
   margin-left:1.5em;
 
-  @media #{$mobile_phone_size} {
+  @include bp-small {
     width:100%;
     height:auto;
     float:left;
@@ -421,7 +410,7 @@ a {
   margin-left:auto;
   margin-right:auto;
 
-  @media #{$mobile_phone_size} {
+  @include bp-small {
     width:100%;
     height:auto;
   }
@@ -467,7 +456,7 @@ video {
     right:7.5%;
     margin:0 0 1.250em 0;
 
-    @media #{$mobile_phone_size} {
+    @include bp-small {
       right:1%;
     }
 
