@@ -463,3 +463,18 @@ function image_creator($image_url, $alt=false, $class=false) {
     $string = '<img src='.$image_url.' alt='.$alt.' class='.$class.'>';
     return $string;
 }
+
+/**
+ * Determine Page ID of any Page/Post
+ *
+ * @param $pid
+ * @return bool
+ */
+function is_tree($pid) {
+    global $post;
+
+    if(is_page()&&($post->post_parent==$pid||is_page($pid)))
+        return true;
+    else
+        return false;
+};
