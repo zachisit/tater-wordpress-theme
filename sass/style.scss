@@ -192,20 +192,28 @@ a {
   white-space:nowrap;
 }
 
-.button_link {
-  background:orange;/*TODO:change later*/;
-  padding:0.438em 1.250em;
+.button {
+  @include border-radius(0.66em);
+  background:black;
+  color:white;
+  padding:0.54em 0.8em;
   text-align:center;
-  text-decoration:none;
-  text-transform:uppercase;
-  color:white !important;
-  -webkit-border-radius:0.250em;
-  -moz-border-radius:0.250em;
-  border-radius:0.250em;
+  border:none;
+  outline:none;
+  font-weight:500;
+  cursor:pointer;
+  font-size:0.9em;
 
   &:hover {
-    transition:background 0.7s ease;
-    background:orange;/*TODO:change later*/;
+    @include transition(background 800ms);
+    background:purple;
+  }
+
+  &:disabled {
+    background:none;
+    border:0.040em solid #ccc;
+    color:#ccc;
+    cursor:unset;
   }
 }
 
@@ -230,6 +238,9 @@ a {
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
+header {
+
+}
 
 /*--------------------------------------------------------------
 # Menu - Desktop and Mobile
@@ -288,7 +299,7 @@ a {
   }
 
   .menu {
-    //@include ul-no-list-style;@TODO:create mixin later
+    @include ul-no-list-style;
 
     li {
       display:inline-block;
@@ -297,10 +308,8 @@ a {
 
       a {
         font-size:1em;
-        color:gray;/*TODO:change later*/;
+        color:gray;
       }
-
-      //@include ul-li-last-item-no-pad;@TODO:create mixin later
 
       &:hover {
 
@@ -312,7 +321,7 @@ a {
       &.current_page_item {
 
         a {
-          color:yellow; //@TODO:change to brand color later
+          color:yellow;
         }
       }
     }

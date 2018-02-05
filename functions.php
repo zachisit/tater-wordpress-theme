@@ -478,3 +478,22 @@ function is_tree($pid) {
     else
         return false;
 };
+
+/**
+ * General Image Fallback
+ *
+ * in a general instance, pipe in desired image asset
+ * if not available, then show placeholder image
+ *
+ * placeholder image is general placeholder sitting in root of theme/images/
+ *
+ * @param $wantedAsset
+ * @param $post
+ */
+function generalFallBackImageHandling($wantedAsset, $post) {
+    if (!$wantedAsset) : ?>
+        <?=image_creator(get_template_directory_uri().'/images/placeholder.png', 'placeholder image') ?>
+    <?php else : ?>
+        <?=$wantedAsset?>
+    <?php endif;
+}
