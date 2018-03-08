@@ -1,18 +1,16 @@
+@import "common/variables.scss";
+@import "common/mixins.scss";
+@import "common/normalize.scss";
+
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
-# Client Brand Colors
-# Social Brand Colors
-# Mixins
-# Global
 # Header
 # Menu - Deskop and Mobile
 # Home Page Specific
 # Content
 # - Page Specific Content
 # Sidebar
-# Alignments
-# Responsive Video Wrapper & Video Object
 # Scroll To Top
 # Footer
 # Vendor Specific
@@ -20,226 +18,13 @@
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
-# Client Brand Colors
---------------------------------------------------------------*/
-//colors here
-$error_red:#FF7878;
-
-/*--------------------------------------------------------------
-# Social Brand Colors
---------------------------------------------------------------*/
-$facebook_brand_color_blue:#3b5998;
-$twitter_brand_color_blue:#1da1f2;
-$youtube_brand_color_red:#cd201f;
-$instagram_brand_color:#833ab4;
-$pinterest_brand_color:#bd081c;
-
-/*--------------------------------------------------------------
-# Mixins
---------------------------------------------------------------*/
-$mobile_phone_size:"only screen and (max-width:430px)";//to be depreciated; use mixins below
-$table_size:"only screen and (min-width:430px) and (max-width:880px)";//to be depreciated; use mixins below
-$medium_desktop_size:"only screen and (min-width:881px) and (max-width:1300px)";//to be depreciated; use mixins below
-
-@mixin bp-large {
-  @media only screen and (max-width: 60em) {
-    @content;
-  }
-}
-@mixin bp-medium {
-  @media only screen and (max-width: 40em) {
-    @content;
-  }
-}
-@mixin bp-small {
-  @media only screen and (max-width: 30em) {
-    @content;
-  }
-}
-@mixin mobile_width_float_margin {
-  float:left;
-  width:100%;
-  margin:0;
-}
-@mixin image_responsive {
-  img {
-    width:100%;
-    height:auto;
-  }
-}
-@mixin transition($args...) {
-  -webkit-transition: $args;
-  -moz-transition: $args;
-  -ms-transition: $args;
-  -o-transition: $args;
-  transition: $args;
-}
-@mixin ul-list-no-margin {
-  margin:0;
-  padding:0;
-}
-@mixin ul-li-last-item-no-margin {
-  &:last-child {
-    padding:0;
-    margin:0;
-  }
-}
-@mixin ul-no-list-style {
-  list-style-type:none;
-}
-@mixin keyframes($animation-name) {
-  @-webkit-keyframes #{$animation-name} {
-    @content;
-  }
-  @-moz-keyframes #{$animation-name} {
-    @content;
-  }
-  @-ms-keyframes #{$animation-name} {
-    @content;
-  }
-  @-o-keyframes #{$animation-name} {
-    @content;
-  }
-  @keyframes #{$animation-name} {
-    @content;
-  }
-}
-@mixin border-radius($border) {
-  -webkit-border-radius:$border;
-  -moz-border-radius:$border;
-  border-radius:$border;
-}
-@mixin font-awesome-declaration($type, $unicode, $size, $margin, $color, $weight) {
-  @if $type == 'after'{
-    &:after {
-      content:$unicode;
-      font-family:"FontAwesome";
-      font-size:$size;
-      color:$color;
-      font-weight:$weight;
-      margin:$margin;
-      @content;
-    }
-  }
-  @if $type == 'before' {
-    &:before {
-      content:$unicode;
-      font-family:"FontAwesome";
-      font-size:$size;
-      color:$color;
-      font-weight:$weight;
-      margin:$margin;
-      @content;
-    }
-  }
-}
-
-/*--------------------------------------------------------------
-# Global
---------------------------------------------------------------*/
-body {
-  margin:0;
-  padding:0;
-  font-family:sans-serif;
-}
-
-ul {
-  margin:0;
-  padding:0;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  margin:0 0 0.500em 0;
-  padding:0;
-}
-
-a {
-  outline:none;
-  text-decoration:none;
-}
-
-.screen_reader_text {
-  border:0;
-  clip:rect(1px, 1px, 1px, 1px);
-  clip-path:inset(50%);
-  height:1px;
-  margin:-1px;
-  overflow:hidden;
-  padding:0;
-  position:absolute !important;
-  width:1px;
-  word-wrap:normal !important;
-}
-
-.wrapper {
-  margin:auto;
-  float:none;
-  max-width:1290px;
-  display:block;
-}
-
-.pdf_link:after {
-  content:"";
-  background:url(../images/preload/pdf_link.png) center right no-repeat;
-  padding:0 1em 0 0.5em;
-  white-space:nowrap;
-}
-
-.doc_link:after {
-  content:"";
-  background:url(../images/preload/word_link.png) center right no-repeat;
-  padding:0 1em 0 0.5em;
-  white-space:nowrap;
-}
-
-.button {
-  @include border-radius(0.66em);
-  background:black;
-  color:white;
-  padding:0.54em 0.8em;
-  text-align:center;
-  border:none;
-  outline:none;
-  font-weight:500;
-  cursor:pointer;
-  font-size:0.9em;
-
-  &:hover {
-    @include transition(background 800ms);
-    background:purple;
-  }
-
-  &:disabled {
-    background:none;
-    border:0.040em solid #ccc;
-    color:#ccc;
-    cursor:unset;
-  }
-}
-
-.bold {
-  font-weight:900;
-}
-
-.telephone_link {
-  font-weight:normal;
-  color:white;
-  text-decoration:none;
-}
-
-.mobile_only {
-  display:none;
-
-  @include bp-small {
-    display:block;
-  }
-}
-
-/*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
 header {
 
+  #logo {
+
+  }
 }
 
 /*--------------------------------------------------------------
@@ -380,73 +165,23 @@ header {
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
+#content_left {
+
+}
+
+#content_right {
+
+}
+
+#content_full {
+
+}
 
 /*--------------------------------------------------------------
 # Sidebar
 --------------------------------------------------------------*/
+#sidebar {
 
-/*--------------------------------------------------------------
-# Alignments
---------------------------------------------------------------*/
-.alignleft {
-  display:inline;
-  float:left;
-  margin-right:1.5em;
-
-  @include bp-small {
-    width:100%;
-    height:auto;
-    margin:0;
-  }
-}
-
-.alignright {
-  display:inline;
-  float:right;
-  margin-left:1.5em;
-
-  @include bp-small {
-    width:100%;
-    height:auto;
-    float:left;
-    margin:0;
-  }
-}
-
-.aligncenter {
-  clear:both;
-  display:block;
-  margin-left:auto;
-  margin-right:auto;
-
-  @include bp-small {
-    width:100%;
-    height:auto;
-  }
-}
-
-/*--------------------------------------------------------------
- # Responsive Video Wrapper & Video Object
---------------------------------------------------------------*/
-.videoWrapper {
-  position:relative;
-  padding-bottom:56.25%; /* 16:9 */
-  padding-top:25px;
-  height:0;
-
-  iframe {
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-  }
-}
-
-video {
-  width:100% !important;
-  height:auto !important;
-  display:block;
 }
 
 /*--------------------------------------------------------------

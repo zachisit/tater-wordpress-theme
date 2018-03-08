@@ -1,6 +1,9 @@
 # Project Title
 [CLIENT NAME] Wordpress Theme
 
+## Package Name
+`package-name-usage`
+
 ## Table of Contents
 - [Author](#author)
 - [Dependencies](#dependencies)
@@ -14,10 +17,10 @@
 - [Base Theme History](#base-theme-history)
 
 ## Author
-* Zachary Smith
+* [Zachary Smith](https://www.twitter.com/zachisit)
 
 ## Dependencies
-* SASS - theme uses SASS compiler for all stylesheets used in theme. The SASS files (.css and .scss) are located in the root/sass directory. This directory set up is intentional to work with the required [WP-SCSS](https://wordpress.org/plugins/wp-scss/) plugin listed below in the [Theme Plugins](#theme-plugins) section of this document.
+* SASS - theme uses SASS compiler for all stylesheets used in theme. The SASS files (.css and .scss) are located in the root/sass directory. The common files (normalized, mixins, variables) are moved into the root/sass/common/ directory. This directory set up is intentional to work with the required [WP-SCSS](https://wordpress.org/plugins/wp-scss/) plugin listed below in the [Theme Plugins](#theme-plugins) section of this document; or a compiler on the server may be used depending on the project.
 * In-house templating engine, found in functions.php
 * While respecting that a theme does not need a list of poorly written plugins that complete functionality that a compentant developer can write from scratch, this theme has chosen certain plugins that extend or compliment the overall architecture of the theme itself. A list of those plugins are in the section [Theme Plugins](#theme-plugins) - if any of these plugins are not installed then an error will print in the admin screen alerting user to complete installation
 * @TODO
@@ -56,4 +59,4 @@ Name Here  | used rarely where specified, this is really only an accent attentio
 * Function method brackets will start on same line
 
 ## Base Theme History
-This WordPress theme is [forked from] a bare-bones base theme created by Zach Smith called [tater](https://github.com/zachisit/tater-wordpress-theme), with base theme version number 1.6.10. Started in the summer of 2017, the purpose of this base theme is to start a new project with the code and coding structures needed to jump start development. This theme does not utilize a parent-child theme structure. This base theme will be updated as Zach progresses through better programming styles and structures. The preferred editor is PHPStorm, hence the existing .gitigore rule(s). An unlimited amount of thanks goes to Max for helping me get this far in my coding ethos.
+This WordPress theme is [forked from] a bare-bones base theme created by Zach Smith called [tater](https://github.com/zachisit/tater-wordpress-theme), with base theme version number 1.7.0. Started in the summer of 2017, the purpose of this base theme is to start a new project with the code and coding structures needed to jump start development. This theme does not utilize a parent-child theme structure. This base theme will be updated as Zach progresses through better programming styles and structures. The preferred editor is PHPStorm, hence the existing .gitigore rule(s).
