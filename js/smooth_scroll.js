@@ -3,9 +3,10 @@
  *
  * Basic anchor text link smooth scroll script
  *
- * @dependecy jquery
- * @version: 1.0
- * @package: tater
+ * @dependecies jquery
+ * @version 1.1.1
+ * @package tater
+ *
  */
 
 jQuery(document).ready(function($){
@@ -21,6 +22,9 @@ jQuery(document).ready(function($){
     });
 
     $('a[href*="#"]:not([href="#"])').click(function() {
+        if (!$(this).is(':visible')) { //do not fire on display:none link elements
+            return;
+        }
 
         if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
             var target = $(this.hash);
