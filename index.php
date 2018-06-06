@@ -1,15 +1,13 @@
 <?php
 /**
- * The main template file
- *
- * Serves as landing page for theme
+ * Home landing page
  *
  * @package tater
  */
-get_header(); ?>
+get_header() ?>
 
 <main>
 
 </main>
 
-<?php get_footer(); ?>
+<?php get_footer() ?>

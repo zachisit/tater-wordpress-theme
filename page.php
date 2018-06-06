@@ -4,7 +4,7 @@
  *
  * @package tater
  */
-get_header(); ?>
+get_header() ?>
     <main>
         <div class="wrapper">
             <div id="content_left">
@@ -13,7 +13,7 @@ get_header(); ?>
                     echo the_content();
                 endwhile; ?>
             </div>
-            <?php get_sidebar(); ?>
+            <?php get_sidebar() ?>
         </div>
     </main>
-<?php get_footer(); ?>
+<?php get_footer() ?>

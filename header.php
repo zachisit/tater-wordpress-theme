@@ -37,14 +37,14 @@
 
 <header>
     <div id="logo">
-        <a href="<?=get_home_url(); ?>" title="<?=get_home_url(); ?> Home"><img src="<?=get_template_directory_uri(); ?>/images/preload/logo1.png" alt="<?=get_bloginfo( 'name' ); ?> - <?=get_home_url(); ?> Logo" /></a>
+        <a href="<?=get_home_url()?>" title="<?=get_home_url()?> Home"><img src="<?=get_template_directory_uri() ?>/images/preload/logo1.png" alt="<?=get_bloginfo('name')?> - <?=get_home_url()?> Logo" /></a>
     </div>
     <button id="menu_btn"></button>
     <div id="menu">
         <button id="menu_close"></button>
         <div id="search_mobile">
-            <?php get_search_form(); ?>
+            <?php get_search_form()?>
         </div>
-        <?php wp_nav_menu( [ 'theme_location' => 'header_menu', 'menu_id' => 'primary-menu' ] ); ?>
+        <?php wp_nav_menu(['theme_location' => 'header_menu','menu_id' => 'primary-menu'])?>
     </div>
 </header>

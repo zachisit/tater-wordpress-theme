@@ -4,12 +4,12 @@
  *
  * @package tater
  */
-get_header(); ?>
+get_header() ?>
 <main>
     <div id="content_left">
         <?php while ( have_posts() ) : the_post();
 
         endwhile; ?>
     </div>
-    <?php get_sidebar(); ?>
-<?php get_footer(); ?>
+    <?php get_sidebar() ?>
+<?php get_footer() ?>

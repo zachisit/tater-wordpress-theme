@@ -1,10 +1,6 @@
 /*--------------------------------------------------------------
 # Mixins
 --------------------------------------------------------------*/
-$mobile_phone_size:"only screen and (max-width:430px)";//to be depreciated; use mixins below
-$table_size:"only screen and (min-width:430px) and (max-width:880px)";//to be depreciated; use mixins below
-$medium_desktop_size:"only screen and (min-width:881px) and (max-width:1300px)";//to be depreciated; use mixins below
-
 @mixin bp-large {
   @media only screen and (max-width: 60em) {
     @content;
@@ -20,6 +16,18 @@ $medium_desktop_size:"only screen and (min-width:881px) and (max-width:1300px)";
     @content;
   }
 }
+//site responsive: small desktop
+@mixin bp_desktop_smaller {
+  @media only screen and (min-device-width : 800px) and (max-device-width : 1289px) {
+    @content;
+  }
+}
+@mixin bp_phone {
+  @media only screen and (max-device-width:500px) {
+    @content;
+  }
+}
+
 @mixin mobile_width_float_margin {
   float:left;
   width:100%;
@@ -72,6 +80,11 @@ $medium_desktop_size:"only screen and (min-width:881px) and (max-width:1300px)";
   -webkit-border-radius:$border;
   -moz-border-radius:$border;
   border-radius:$border;
+}
+@mixin skew($arg) {
+  -webkit-transform:skewX($arg);
+  -ms-transform:skewX($arg);
+  transform:skewX($arg);
 }
 @mixin font-awesome-declaration($type, $unicode, $size, $margin, $color, $weight) {
   &:#{$type} {
