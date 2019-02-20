@@ -5,11 +5,12 @@
  * @package tater
  */
 get_header() ?>
-<main>
-    <div id="content_left">
-        <?php while ( have_posts() ) : the_post();
+    <main>
+        <div id="content_left">
+            <?php while ( have_posts() ) : the_post();
 
-        endwhile; ?>
-    </div>
-    <?php get_sidebar() ?>
+            endwhile; ?>
+        </div>
+        <?php get_sidebar() ?>
+    </main>
 <?php get_footer() ?>

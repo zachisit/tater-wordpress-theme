@@ -6,7 +6,7 @@
  * @dependencies: slick slider
  * http://kenwheeler.github.io/slick/
  * jquery
- * @version: 1.0
+ * @version: 1.0.1
  * @package: tater
  */
 

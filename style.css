@@ -1,1 +1,12 @@
-/*nothing to see here. below will output compiled sass*/
+/*
+Theme Name: Tater TwentyNineteen
+Theme URI: https://louisvillecreativegroup.com
+Author: Louisville Creative Group, Zachary Smith
+Author URI: https://louisvillecreativegroup.com
+Description: Custom WordPress theme.
+Version: 1.0.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+@import "css/main.css";
