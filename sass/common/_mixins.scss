@@ -86,6 +86,11 @@
   -ms-transform:skewX($arg);
   transform:skewX($arg);
 }
+@mixin scale($rate){
+  transform:scale($rate);
+  -moz-transform:scale($rate);
+  -webkit-transform:scale($rate);
+}
 @mixin font-awesome-declaration($type, $unicode, $size, $margin, $color, $weight) {
   &:#{$type} {
     content:$unicode;
@@ -95,5 +100,21 @@
     font-weight:$weight;
     margin:$margin;
     @content;
+  }
+}
+@mixin image_overlay_transition($speed,$opacity,$scale) {
+  img {
+    @include transition($speed all ease);
+    width:100%;
+    height:auto;
+  }
+
+  &:hover {
+
+    img {
+      @include transition($speed all ease);
+      @include scale($scale);
+      opacity:$opacity;
+    }
   }
 }
