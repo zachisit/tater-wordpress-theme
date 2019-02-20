@@ -1,3 +1,5 @@
+//google font imports would go here
+
 /*--------------------------------------------------------------
 # Global
 --------------------------------------------------------------*/
@@ -44,14 +46,14 @@ a {
 
 .pdf_link:after {
   content:"";
-  background:url(../images/preload/pdf_link.png) center right no-repeat;
+  background:url("../../images/pdf_link.png") center right no-repeat;
   padding:0 1em 0 0.5em;
   white-space:nowrap;
 }
 
 .doc_link:after {
   content:"";
-  background:url(../images/preload/word_link.png) center right no-repeat;
+  background:url("../../images/word_link.png") center right no-repeat;
   padding:0 1em 0 0.5em;
   white-space:nowrap;
 }

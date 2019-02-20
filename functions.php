@@ -44,18 +44,17 @@ function theme_scripts()
     wp_enqueue_script('jquery');
 
     //css
-    wp_enqueue_style( 'theme-style', get_stylesheet_uri() );
-    //wp_enqueue_style( 'google_font_kreon', 'https://fonts.googleapis.com/css?family=Kreon:200,400,700,900');
+    wp_enqueue_style('theme-style',get_stylesheet_uri());
 
     //js
     ////vendor
-    wp_enqueue_script( 'font-awesome', 'https://use.fontawesome.com/966d4a5f64.js', time() );
+    wp_enqueue_script('font-awesome','https://use.fontawesome.com/966d4a5f64.js',time());
     /// local
-    wp_enqueue_script( 'preload_directory', get_template_directory_uri() . '/js/preload_directory.js',  time() );
-    wp_enqueue_script( 'mobile-menu', get_template_directory_uri() . '/js/mobile_menu.js', time(), true );
-    wp_enqueue_script( 'videoWrapper', get_template_directory_uri() . '/js/videoWrapper.js',  time() );
-    wp_enqueue_script( 'smooth_scroll', get_template_directory_uri() . '/js/smooth_scroll.js',  time() );
-    wp_enqueue_script( 'pdf_css_icon_add', get_template_directory_uri() . '/js/pdf_css_icon_add.js', time() );
+    wp_enqueue_script('mobile-menu',get_template_directory_uri().'/js/MobileMenu.js',time());
+    wp_enqueue_script('videoWrapper',get_template_directory_uri().'/js/VideoWrapper.js',time());
+    wp_enqueue_script('smooth_scroll',get_template_directory_uri().'/js/SmoothScroll.js',time());
+    wp_enqueue_script('pdf_css_icon_add',get_template_directory_uri().'/js/PdfIcon.js',time());
+    wp_enqueue_script('slick_config',get_template_directory_uri().'/js/SlickConfig.js',time());
 
     //localized
     wp_localize_script('preload_directory', 'ajax', [
@@ -64,18 +63,6 @@ function theme_scripts()
     ]);
 }
 add_action( 'wp_enqueue_scripts', 'theme_scripts' );
-
-/**
- * Remove auto-linking of upload image in Media Library
- */
-function theme_imagelink_setup() {
-    $image_set = get_option( 'image_default_link_type' );
-
-    if ($image_set !== 'none') {
-        update_option('image_default_link_type', 'none');
-    }
-}
-add_action('admin_init', 'theme_imagelink_setup', 10);
 
 /**
  * Login Screen CSS
@@ -126,33 +113,6 @@ function populate_template_file($templateFile, $args = [])
     return ob_get_clean();
 }
 
-/**
- * Preloading Directory of Files
- * preload entire dir
- * @return: json encoded string
- */
-function XXX_theme_preload_dir() {
-    header( 'Content-type: application/json' );
-
-    $filenameArray = [];
-    $templatePath = get_template_directory_uri();
-
-    $handle = opendir(dirname(realpath(__FILE__)). '/images/preload/');
-
-    while($file = readdir($handle)){
-        if($file !== '.' && $file !== '..'){
-            array_push($filenameArray, "$templatePath/images/preload/$file");
-        }
-    }
-
-    echo json_encode($filenameArray);
-
-    wp_die();//need to do at end of ajax calls to stop
-}
-
-add_action('wp_ajax_preload_images_directory', 'XXX_theme_preload_dir');
-add_action('wp_ajax_nopriv_preload_images_directory', 'XXX_theme_preload_dir');
-
 /*
  * Convert Normal YouTube link into embed code
  * Turns - https://www.youtube.com/watch?v=Aq-d4CET3rY
@@ -163,7 +123,8 @@ add_action('wp_ajax_nopriv_preload_images_directory', 'XXX_theme_preload_dir');
  * @param $youtube_url
  * @return mixed
  */
-function youtube_url_to_embed($youtube_url) {
+function youtube_url_to_embed($youtube_url)
+{
     $search = '/youtube\.com\/watch\?v=([a-zA-Z0-9]+)/smi';
     $replace = "youtube.com/embed/$1";
     $embed_url = preg_replace($search,$replace,$youtube_url);
@@ -180,7 +141,8 @@ function youtube_url_to_embed($youtube_url) {
  * @param $embed_url
  * @return string
  */
-function youtube_embed_iframe($embed_url) {
+function youtube_embed_iframe($embed_url)
+{
     $iframe = '<iframe title="YouTube video player" class="youtube-player" type="text/html"  src="'.$embed_url.'"
 frameborder="0" allowFullScreen></iframe>';
 
@@ -199,7 +161,8 @@ frameborder="0" allowFullScreen></iframe>';
  * @return string
  */
 //@TODO:create and provide placeholder image
-function getFeaturedImage($id, $size) {
+function getFeaturedImage($id, $size)
+{
     $size = ($size) ? $size : 'small';
 
     $tub = get_the_post_thumbnail($id, $size);
@@ -221,7 +184,8 @@ function getFeaturedImage($id, $size) {
  *
  * @return string
  */
-function getPageFeaturedImageBanner() {
+function getPageFeaturedImageBanner()
+{
     $tub = get_the_post_thumbnail(null, 'full');
 
     if (empty($tub)) {
@@ -243,7 +207,8 @@ function getPageFeaturedImageBanner() {
  * select if you want it as a parallax or non-parallax section
  * @param int $parallax set to default false
  */
-function pageBannerImage($parallax = 0) {
+function pageBannerImage($parallax = 0)
+{
     switch ($parallax):
         case 0://if no, show regular style
             include_once 'templates/pageBannerImageRegular.php';
@@ -255,156 +220,12 @@ function pageBannerImage($parallax = 0) {
 }
 
 /**
- * WP 404 Alerts
- *
- * send email to theme developer when 404 hit
- * and update error_log with url, time, and IP
- *
- * method is called on 404.php
- */
-function four_oh_four_alert() {
-    //set status
-    header("HTTP/1.1 404 Not Found");
-    header("Status: 404 Not Found");
-
-    //site info
-    $blog  = get_bloginfo('name');
-    $site  = get_bloginfo('url') . '/';
-    $email_send = 'zach@zachis.it';
-    $email_from = get_bloginfo('admin_email');
-
-    //referrer
-    if (isset($_SERVER['HTTP_REFERER'])) {
-        $referer = clean($_SERVER['HTTP_REFERER']);
-    } else {
-        $referer = "undefined";
-    }
-
-    //request URI
-    if (isset($_SERVER['REQUEST_URI']) && isset($_SERVER['HTTP_HOST'])) {
-        $request = clean('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
-    } else {
-        $request = 'undefined';
-    }
-
-    //query string
-    if (isset($_SERVER['QUERY_STRING'])) {
-        $string = clean($_SERVER['QUERY_STRING']);
-    } else {
-        $string = 'undefined';
-    }
-
-    //IP address
-    if (isset($_SERVER['REMOTE_ADDR'])) {
-        $address = clean($_SERVER['REMOTE_ADDR']);
-    } else {
-        $address = 'undefined';
-    }
-
-    //user agent
-    if (isset($_SERVER['HTTP_USER_AGENT'])) {
-        $agent = clean($_SERVER['HTTP_USER_AGENT']);
-    } else {
-        $agent = 'undefined';
-    }
-
-    //identity
-    if (isset($_SERVER['REMOTE_IDENT'])) {
-        $remote = clean($_SERVER['REMOTE_IDENT']);
-    } else {
-        $remote = 'undefined';
-    }
-
-    //log time
-    $time = clean(date('F jS Y, h:ia', time()));
-
-    //sanitize
-    function clean($string) {
-        $string = rtrim($string);
-        $string = ltrim($string);
-        $string = htmlentities($string, ENT_QUOTES);
-        $string = str_replace("\n", "<br>", $string);
-
-        if (get_magic_quotes_gpc()) {
-            $string = stripslashes($string);
-        }
-        return $string;
-    }
-
-    $message =
-        'TIME: '            . $time    . "\n" .
-        '*404: '            . $request . "\n" .
-        'SITE: '            . $site    . "\n" .
-        'REFERRER: '        . $referer . "\n" .
-        'QUERY STRING: '    . $string  . "\n" .
-        'REMOTE ADDRESS: '  . $address . "\n" .
-        'REMOTE IDENTITY: ' . $remote  . "\n" .
-        'USER AGENT: '      . $agent   . "\n\n\n";
-
-    //send mail based on mail() or smtp delivery methods
-    if (in_array('mail', explode(';', ini_get('disable_functions')))) {
-        mail($email_send, "404 Alert: " . $blog . "", $message, "From: $email_from");
-
-        //set error log message
-        error_log('404 hit on '. $referer . ' with an IP of '. $agent .'. Email via mail() is sent!');
-    } else {
-        //set up smtp
-        ini_set('SMTP', 'aspmx.l.google.com');
-        ini_set('sendmail_from', 'zacharyrs@gmail.com');
-
-        mail($email_send, "404 Alert: " . $blog . "", $message, "From: $email_from");
-
-        //set error log message
-        error_log('404 hit on '. $referer . ' with an IP of '. $agent .'. Email via SMTP is sent!');
-    }
-}
-
-/**
- * Plugins Required For Theme
- *
- * some plugins help the theme run as expected
- * if a required plugin is missing, alert admin user
- */
-function checkPluginsRequired() {
-    $plugin_messages = [];
-
-    include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-
-    //get theme information
-    $this_theme = wp_get_theme();
-    $this_theme_name = $this_theme->get('Name');
-    $this_theme_version = $this_theme->get('Version');
-
-    //WP-SCSS Plugin
-    if(!is_plugin_active( 'wp-scss/wp-scss.php' ))	{
-        $plugin_messages[] = 'The '.$this_theme_name.' v.'.$this_theme_version.' theme requires you to install the WP-SCSS plugin - <a href="https://wordpress.org/plugins/wp-scss/" title="Download the required plugin here" target="_blank">download it from here</a> or activate if currently installed.';
-    }
-
-    /*further plugins would be written in the following format
-    //WooCommerce Plugin
-    if(!is_plugin_active( 'woocommerce/woocommerce.php' ))	{
-        $plugin_messages[] = 'The '.$this_theme_name.' v.'.$this_theme_version.' theme requires you to install the WooCommerce plugin - <a href="https://wordpress.org/plugins/woocommerce/" title="Download the required plugin here" target="_blank">download it from here</a> or activate if currently installed.';
-    }
-    */
-
-    if(count($plugin_messages) > 0)	{
-        echo '<div id="message" class="error">';
-
-        foreach($plugin_messages as $message) {
-            echo '<p><strong>'.$message.'</strong></p>';
-        }
-
-        echo '</div>';
-    }
-}
-add_action('admin_notices', 'checkPluginsRequired');
-
-/**
  * Return Page content per ID passed in
  * @param $page
  * @return mixed
  */
-function get_page_content($page) {
+function get_page_content($page)
+{
     $page_id = $page;
     $page_data = get_page( $page_id );
     $content = apply_filters('the_content', $page_data->post_content);
@@ -424,8 +245,11 @@ function get_page_content($page) {
  * @param bool $excerpt
  * @param bool $readmore
  * @param bool $date
+ *
+ * @TODO: use populate_template_file method to return output
  */
-function get_latest_post($category_slug, $return_number, $title = false, $excerpt = false, $readmore = false, $date = false) {
+function get_latest_post($category_slug, $return_number, $title = false, $excerpt = false, $readmore = false, $date = false)
+{
     $args = [
         'post_type' => 'post',
         'post_status' => 'publish',
@@ -460,7 +284,8 @@ function get_latest_post($category_slug, $return_number, $title = false, $excerp
  * @param bool $class
  * @return string
  */
-function image_creator($image_url, $alt=false, $class=false) {
+function image_creator($image_url, $alt=false, $class=false)
+{
     $string = '<img src='.$image_url.' alt='.$alt.' class='.$class.'>';
     return $string;
 }
@@ -471,7 +296,8 @@ function image_creator($image_url, $alt=false, $class=false) {
  * @param $pid
  * @return bool
  */
-function is_tree($pid) {
+function is_tree($pid)
+{
     global $post;
 
     if(is_page()&&($post->post_parent==$pid||is_page($pid)))
@@ -491,7 +317,8 @@ function is_tree($pid) {
  * @param $wantedAsset
  * @param $post
  */
-function generalFallBackImageHandling($wantedAsset, $post) {
+function generalFallBackImageHandling($wantedAsset, $post)
+{
     if (!$wantedAsset) : ?>
         <?=image_creator(get_template_directory_uri().'/images/placeholder.png', 'placeholder image') ?>
     <?php else : ?>
@@ -502,7 +329,8 @@ function generalFallBackImageHandling($wantedAsset, $post) {
 /**
  * Disable native WordPress emoji's loading
  */
-function disable_emojis() {
+function disable_emojis()
+{
     remove_action('wp_head','print_emoji_detection_script', 7);
     remove_action('admin_print_scripts','print_emoji_detection_script');
     remove_action('wp_print_styles','print_emoji_styles');
@@ -521,7 +349,8 @@ add_action('init','disable_emojis');
  * @param array $plugins
  * @return array Difference betwen the two arrays
  */
-function disable_emojis_tinymce($plugins) {
+function disable_emojis_tinymce($plugins)
+{
     if (is_array($plugins)) {
         return array_diff($plugins, ['wpemoji']);
     } else {
@@ -536,7 +365,8 @@ function disable_emojis_tinymce($plugins) {
  * @param string $relation_type The relation type the URLs are printed for.
  * @return array Difference betwen the two arrays.
  */
-function disable_emojis_remove_dns_prefetch($urls, $relation_type) {
+function disable_emojis_remove_dns_prefetch($urls, $relation_type)
+{
     if ('dns-prefetch' == $relation_type) {
         /** This filter is documented in wp-includes/formatting.php */
         $emoji_svg_url = apply_filters('emoji_svg_url','https://s.w.org/images/core/emoji/2/svg/');

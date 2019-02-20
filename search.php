@@ -35,7 +35,7 @@ $the_query = new WP_Query($search_query);
                     <?php endwhile; ?>
                 </ul>
             <?php else: ?>
-                <p>No results found. Please <a href="<?= get_home_url(); ?>/search" title="search page">search again</a>.</p>
+                <p>No results found. Please <a href="<?=home_url()?>/search" title="search page">search again</a>.</p>
             <?php endif; ?>
         </div>
     </div>

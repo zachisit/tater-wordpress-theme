@@ -10,7 +10,7 @@
  * and will serve as a fallback
  *
  * @dependecy jquery
- * @version: 1.0
+ * @version: 1.0.1
  * @package: tater
  */
 
