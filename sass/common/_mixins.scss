@@ -81,6 +81,10 @@
   -moz-border-radius:$border;
   border-radius:$border;
 }
+@mixin grayscale($perc) {
+  -webkit-filter: grayscale($perc); /* Safari 6.0 - 9.0 */
+  filter: grayscale($perc);
+}
 @mixin skew($arg) {
   -webkit-transform:skewX($arg);
   -ms-transform:skewX($arg);
