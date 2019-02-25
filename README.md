@@ -20,10 +20,9 @@
 * [Zachary Smith](https://www.twitter.com/zachisit)
 
 ## Dependencies
-* SASS - theme uses SASS compiler for all stylesheets used in theme. The SASS files (.css and .scss) are located in the root/sass directory. The common files (normalized, mixins, variables) are moved into the root/sass/common/ directory. This directory set up is intentional to work with the required [WP-SCSS](https://wordpress.org/plugins/wp-scss/) plugin listed below in the [Theme Plugins](#theme-plugins) section of this document; or a compiler on the server may be used depending on the project.
+* SASS - theme uses SASS compiler for all stylesheets used in theme. The SASS files (.css and .scss) are located in the root/sass directory. The common files (normalized, mixins, variables) are moved into the root/sass/common/ directory. This directory set up is intentional to work with a compiler on the server or via local development, depending on your work flows.
 * In-house templating engine, found in functions.php
-* While respecting that a theme does not need a list of poorly written plugins that complete functionality that a compentant developer can write from scratch, this theme has chosen certain plugins that extend or compliment the overall architecture of the theme itself. A list of those plugins are in the section [Theme Plugins](#theme-plugins) - if any of these plugins are not installed then an error will print in the admin screen alerting user to complete installation
-* @TODO
+* While respecting that a theme does not need a list of poorly written plugins that complete functionality that a competent developer can write from scratch, this theme has chosen certain plugins that extend or compliment the overall architecture of the theme itself. A list of those plugins are in the section [Theme Plugins](#theme-plugins) - if any of these plugins are not installed then an error will print in the admin screen alerting user to complete installation
  
 ## Theme Custom Post Types
 * @TODO
@@ -47,11 +46,10 @@ Name Here  | used rarely where specified, this is really only an accent attentio
 * Theme utilizing preloading of any files placed inside the theme/images/preload directory. Refer to file documentation on safe-use.
 
 ## Theme Plugins
-* [WP-SCSS](https://wordpress.org/plugins/wp-scss/) - allows server compiling of SASS file.
 * TODO
 
 ## WordPress Version
-* At time of last update, this theme was built and tested with WordPress version [WORDPRESS-VERSION-NUMBER]
+* At time of last update, this theme was built and tested with WordPress version [WORDPRESS-VERSION-NUMBER].
 
 ## Coding Styles
 * You will find most of the theme's functionality broken up into directories (i.e., custom post types, shortcodes, templates, etc), loosely mimicking a MVC structure.
@@ -59,4 +57,4 @@ Name Here  | used rarely where specified, this is really only an accent attentio
 * Function method brackets will start on next line
 
 ## Base Theme History
-This WordPress theme is [forked from] a bare-bones base theme created by Zach Smith called [tater](https://github.com/zachisit/tater-wordpress-theme), with base theme version number 1.8.2. Started in the summer of 2017, the purpose of this base theme is to start a new project with the code and coding structures needed to jump start development. This theme does not utilize a parent-child theme structure. This base theme will be updated as Zach progresses through better programming styles and structures. The preferred editor is PHPStorm, hence the existing .gitigore rule(s).
+This WordPress theme is forked from a bare-bones base theme created by Zach Smith called [tater](https://github.com/zachisit/tater-wordpress-theme), with base theme version number 1.8.3. Started in the summer of 2017, the purpose of this base theme is to start a new project with the code and coding structures needed to jump start development. This theme does not utilize a parent-child theme structure. This base theme will be updated as Zach progresses through better programming styles and structures. The preferred editor is PHPStorm, hence the existing .gitigore rule(s).
