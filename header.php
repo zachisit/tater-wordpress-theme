@@ -6,11 +6,16 @@
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <title><?php if ( !is_front_page() ) { wp_title( '|', true, 'right' ); } bloginfo( 'name' ); ?></title>
 
-    <!-- Apple Touch Icon -->
-    <link rel="apple-touch-icon" href="images/preload/apple-touch-icon.png"><!--//TODO:provide-->
-
-    <!-- Microsoft Tiles -->
-    <meta name="msapplication-config" content="browserconfig.xml" /><!--//TODO:provide-->
+    <!-- Apple/Safari icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://codetheweb.blog/assets/img/posts/html-icons/icon180.png">
+    <!-- Square Windows tiles -->
+    <meta name="msapplication-square70x70logo" content="https://codetheweb.blog/assets/img/posts/html-icons/icon70.png">
+    <meta name="msapplication-square150x150logo" content="https://codetheweb.blog/assets/img/posts/html-icons/icon150.png">
+    <meta name="msapplication-square310x310logo" content="https://codetheweb.blog/assets/img/posts/html-icons/icon310.png">
+    <!-- Rectangular Windows tile -->
+    <meta name="msapplication-wide310x150logo" content="https://codetheweb.blog/assets/img/posts/html-icons/icon-rect-310.png">
+    <!-- Windows tile theme color -->
+    <meta name="msapplication-TileColor" content="#2e2e2e">
 
     <?php wp_head(); ?>
 </head>
